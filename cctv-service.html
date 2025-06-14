@@ -1,0 +1,76 @@
+<!-- cctv-service.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTV Service | ProService Solutions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-right">
+            <a href="index.html#home">Home</a>
+            <div class="dropdown">
+                <a href="index.html#services" class="dropbtn">Services ▼</a>
+                <div class="dropdown-content">
+                    <a href="laptop-service.html">Laptop Service</a>
+                    <a href="cctv-service.html">CCTV Service</a>
+                    <a href="index.html#consulting">Consulting</a>
+                    <a href="index.html#it-support">IT Support</a>
+                    <a href="index.html#project-management">Project Management</a>
+                </div>
+            </div>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="index.html#gallery">Gallery</a>
+        </nav>
+        <div class="header-main">
+            <div class="header-logo-right">
+                <img src="https://drive.google.com/uc?export=view&id=12f2JltaVuMxddc8Gd1u1O_stVdoWbq6w" alt="Right Logo" />
+            </div>
+            <h1>CCTV Service</h1>
+        </div>
+    </header>
+    <main>
+        <section id="cctv-service" style="background: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80') center/cover no-repeat; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 2rem 1rem; margin: 2rem auto; max-width: 700px; position: relative;">
+            <div style="background: rgba(255,255,255,0.85); border-radius: 10px; max-width: 500px; margin: 0 auto; padding: 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.04); position: relative; z-index: 1;">
+                <h2>CCTV Service Request</h2>
+                <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="CCTV Service" style="max-width:300px;display:block;margin:0 auto 1rem auto;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);">
+                <form id="cctvServiceForm" class="service-form">
+                    <label for="cctvCustomerName">Name:</label>
+                    <input type="text" id="cctvCustomerName" name="cctvCustomerName" required>
+
+                    <label for="cctvCustomerEmail">Email:</label>
+                    <input type="email" id="cctvCustomerEmail" name="cctvCustomerEmail" required>
+
+                    <label for="cctvModel">CCTV Model:</label>
+                    <input type="text" id="cctvModel" name="cctvModel" required>
+
+                    <label for="cctvServiceType">Service Type:</label>
+                    <select id="cctvServiceType" name="cctvServiceType" required>
+                        <option value="">Select Service</option>
+                        <option value="installation">Installation</option>
+                        <option value="maintenance">Maintenance</option>
+                        <option value="repair">Repair</option>
+                        <option value="upgrade">Upgrade</option>
+                        <option value="network">Network/Connectivity Issues</option>
+                        <option value="storage">Storage/Recording Issues</option>
+                        <option value="configuration">Configuration/Setup</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="cctvDetails">Additional Details:</label>
+                    <textarea id="cctvDetails" name="cctvDetails" placeholder="Describe the issue or request..." required></textarea>
+
+                    <button type="submit">Submit Request</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 ProService Solutions. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

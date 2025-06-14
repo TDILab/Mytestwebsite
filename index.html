@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robo Eye Wizard</title>
+    <link rel="preload" as="image" href="business logo/logo-transparent.png">
+    <link rel="preload" as="image" href="loading time/loading web.gif">
+    <link rel="preload" as="image" href="Website gallery/20240111_163845.jpg">
+    <link rel="preload" as="image" href="Website gallery/20240401_125305.jpg">
+    <link rel="preload" as="image" href="Website gallery/20240426_145607.jpg">
+    <link rel="preload" as="image" href="Website gallery/20250527_163716.jpg">
+    <link rel="preload" as="image" href="Website gallery/20250607_194741.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Roboto', Arial, sans-serif; }
+        img, picture, video { max-width: 100%; height: auto; display: block; }
+        [loading="lazy"] { filter: blur(0.5px); transition: filter 0.3s; }
+        [loading="lazy"].loaded { filter: none; }
+    </style>
+</head>
+<body>
+    <!-- Stylish Loader Start -->
+    <div id="loader" style="position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(0,51,102,0.85);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.5s;">
+        <img src="loading time/loading web.gif" alt="Website Loading Logo" style="width:110px;height:110px;border-radius:20px;background:transparent;padding:10px;box-shadow:0 4px 24px rgba(0,0,0,0.18);" loading="eager" fetchpriority="high">
+        <div style="margin-top:1.2rem;color:#fff;font-size:1.3rem;font-weight:600;letter-spacing:1px;">Robo Eye Wizard</div>
+        <div style="margin-top:0.5rem;color:#ffd700;font-size:1.1rem;letter-spacing:2px;">Loading...</div>
+    </div>
+    <style>
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
+    <script>
+    window.addEventListener('load', function() {
+        const loader = document.getElementById('loader');
+        if(loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.style.display = 'none', 600);
+        }
+    });
+    </script>
+    <header style="background:linear-gradient(90deg,#f7fafc 60%,#e9f5fb 100%);box-shadow:0 2px 16px rgba(0,0,0,0.08);padding:0 0 1.5rem 0;position:relative;">
+        <div style="display:flex;align-items:center;justify-content:center;max-width:1200px;margin:0 auto;padding:1.2rem 1.5rem 0 1.5rem;">
+            <div class="header-logo-corner" style="display:flex;align-items:center;gap:1rem;">
+                <img src="business logo/logo-transparent.png" alt="Business Logo" style="width:60px;height:60px;border-radius:12px;background:transparent;object-fit:contain;box-shadow:0 2px 8px rgba(0,0,0,0.10);" loading="eager" fetchpriority="high">
+            </div>
+            <span style="color:#1a237e;font-size:1.7rem;font-weight:700;letter-spacing:1.5px;margin-left:1.5rem;font-family:'Roboto',Arial,sans-serif;">Robo Eye Wizard</span>
+        </div>
+        <div style="text-align:center;margin-top:0.5rem;">
+            <span style="color:#00897b;font-size:1.1rem;font-weight:500;letter-spacing:1px;vertical-align:middle;font-family:'Roboto',Arial,sans-serif;">your emergency service support solution</span>
+        </div>
+        <nav class="nav-right" style="max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;justify-content:flex-end;gap:1.5rem;">
+            <a href="#home" style="color:#1a237e;font-weight:500;font-size:1.08rem;padding:0.5rem 1rem;border-radius:6px;transition:background 0.2s, color 0.2s;text-decoration:none;">Home</a>
+            <div class="dropdown" style="position:relative;">
+                <a href="#services" class="dropbtn" style="color:#1a237e;font-weight:500;font-size:1.08rem;padding:0.5rem 1rem;border-radius:6px;transition:background 0.2s, color 0.2s;text-decoration:none;">Services</a>
+                <div class="dropdown-content" style="display:none; left:0; min-width:220px; box-shadow:0 4px 16px rgba(0,95,163,0.12); border:1px solid #e0eaf3; border-radius:10px; top:110%; background:#fff;">
+                    <a href="laptop-service.html" style="color:#1976d2;font-weight:500;padding:0.7rem 1.2rem;border-radius:6px;transition:background 0.2s;">Laptop Service</a>
+                    <a href="cctv-service.html" style="color:#1976d2;font-weight:500;padding:0.7rem 1.2rem;border-radius:6px;transition:background 0.2s;">CCTV Service</a>
+                    <a href="#consulting" style="color:#1976d2;font-weight:500;padding:0.7rem 1.2rem;border-radius:6px;transition:background 0.2s;">Consulting</a>
+                    <a href="#it-support" style="color:#1976d2;font-weight:500;padding:0.7rem 1.2rem;border-radius:6px;transition:background 0.2s;">IT Support</a>
+                    <a href="#project-management" style="color:#1976d2;font-weight:500;padding:0.7rem 1.2rem;border-radius:6px;transition:background 0.2s;">Project Management</a>
+                    <div class="it-service-img" style="display:flex;align-items:center;padding:0.8rem 1.2rem;border-bottom:1px solid #f0f0f0;background:none;">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=60" alt="IT Service" style="width:32px;height:32px;margin-right:10px;border-radius:6px;object-fit:cover;box-shadow:0 1px 4px rgba(0,0,0,0.08);" />
+                        <span style="font-weight:500;color:#1976d2;">IT Support</span>
+                    </div>
+                </div>
+            </div>
+            <a href="#about" style="color:#1a237e;font-weight:500;font-size:1.08rem;padding:0.5rem 1rem;border-radius:6px;transition:background 0.2s, color 0.2s;text-decoration:none;">About</a>
+            <a href="#contact" style="color:#1a237e;font-weight:500;font-size:1.08rem;padding:0.5rem 1rem;border-radius:6px;transition:background 0.2s, color 0.2s;text-decoration:none;">Contact</a>
+            <a href="#get-in-touch" style="color:#1a237e;font-weight:500;font-size:1.08rem;padding:0.5rem 1rem;border-radius:6px;transition:background 0.2s, color 0.2s;text-decoration:none;">Get in touch</a>
+            <a href="#gallery" style="color:#1a237e;font-weight:500;font-size:1.08rem;padding:0.5rem 1rem;border-radius:6px;transition:background 0.2s, color 0.2s;text-decoration:none;">Gallery</a>
+            <a href="#blog-cctv" style="color:#1a237e;font-weight:500;font-size:1.08rem;padding:0.5rem 1rem;border-radius:6px;transition:background 0.2s, color 0.2s;text-decoration:none;">Blog</a>
+        </nav>
+        <div class="slider" style="position:relative;">
+            <div class="slide active">
+                <img src="website slider image/20220517_161814.jpg" alt="Slider Image 1" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="slide">
+                <img src="website slider image/20220602_162156.jpg" alt="Slider Image 2" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="slide">
+                <img src="website slider image/20220606_135816.jpg" alt="Slider Image 3" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="slide">
+                <img src="website slider image/20240722_183310.jpg" alt="Slider Image 4" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="slide">
+                <img src="website slider image/20240814_143808.jpg" alt="Slider Image 5" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="slide">
+                <img src="website slider image/20241211_163035.jpg" alt="Slider Image 6" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="slide">
+                <img src="website slider image/20250129_204834.jpg" alt="Slider Image 7" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="slide">
+                <img src="website slider image/20250412_144120.jpg" alt="Slider Image 8" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="slide">
+                <img src="website slider image/20250530_134729.jpg" alt="Slider Image 9" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="slider-caption" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,51,102,0.65);color:#fff;padding:2rem 2.5rem;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,0.13);text-align:center;z-index:2;max-width:90vw;">
+                <h2 style="font-size:2.2rem;font-weight:700;letter-spacing:1px;margin:0 0 0.7rem 0;">Experience Fast, Reliable &amp; Secure Service</h2>
+                <p style="font-size:1.15rem;font-weight:400;margin:0;">Your one-stop solution for IT, CCTV, and device support. Book now for expert help and peace of mind!</p>
+            </div>
+        </div>
+        <div class="header-logo-right">
+            <img src="https://drive.google.com/uc?export=view&id=12f2JltaVuMxddc8Gd1u1O_stVdoWbq6w" alt="Right Logo" />
+        </div>
+    </header>
+    <section id="home" class="hero">
+        <h2>Your Trusted Partner for Professional Services</h2>
+        <p>We deliver quality solutions for your business needs.</p>
+    </section>
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-list" id="consulting">
+            <div class="service">
+                <h3>Consulting</h3>
+                <p>Expert advice to help your business grow and succeed.</p>
+                <a href="https://forms.gle/B2g8VsnErhtDis976" target="_blank" rel="noopener" style="display:inline-block;margin-top:0.7rem;padding:0.6rem 1.3rem;background:#1976d2;color:#fff;border-radius:7px;text-decoration:none;font-weight:600;font-size:1.02rem;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background 0.2s;">Book This Service</a>
+            </div>
+            <div class="service" id="it-support">
+                <h3>IT Support</h3>
+                <p>Reliable tech support for all your business systems.</p>
+                <a href="https://forms.gle/B2g8VsnErhtDis976" target="_blank" rel="noopener" style="display:inline-block;margin-top:0.7rem;padding:0.6rem 1.3rem;background:#1976d2;color:#fff;border-radius:7px;text-decoration:none;font-weight:600;font-size:1.02rem;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background 0.2s;">Book This Service</a>
+            </div>
+            <div class="service" id="project-management">
+                <h3>Project Management</h3>
+                <p>End-to-end project management for seamless delivery.</p>
+                <a href="https://forms.gle/B2g8VsnErhtDis976" target="_blank" rel="noopener" style="display:inline-block;margin-top:0.7rem;padding:0.6rem 1.3rem;background:#1976d2;color:#fff;border-radius:7px;text-decoration:none;font-weight:600;font-size:1.02rem;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background 0.2s;">Book This Service</a>
+            </div>
+        </div>
+    </section>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Robo Eye Wizard has over 10 years of experience providing top-notch services to businesses of all sizes. Our team is dedicated to your success.</p>
+        <ul style="margin-top:1.2rem;line-height:1.8;font-size:1.08rem;color:#005fa3;font-weight:500;">
+            <li>"Your satisfaction is our priority – we go the extra mile for every client."</li>
+            <li>"We believe in honest advice, transparent pricing, and reliable service."</li>
+            <li>"Our experts are always ready to help you solve your tech challenges, big or small."</li>
+            <li>"Quality work, timely delivery, and friendly support – that’s our promise."</li>
+            <li>"Building trust, one service at a time."</li>
+        </ul>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div style="max-width:480px;margin:0 auto;text-align:center;padding:2rem 1rem;background:#fff;border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+            <p style="font-size:1.1rem;margin-bottom:1.5rem;color:#1976d2;font-weight:500;">For quick and easy service requests, please use our Google Form below:</p>
+            <a href="https://forms.gle/3K6H98eDp2bYX1277" target="_blank" rel="noopener" style="display:inline-block;padding:0.9rem 2.2rem;background:#1976d2;color:#fff;font-size:1.15rem;font-weight:600;border-radius:8px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background 0.2s;">Open Contact Form</a>
+            <p style="margin-top:1.5rem;color:#37474f;font-size:0.98rem;">Or email us directly at <a href="mailto:roboeyewizard@gmail.com" style="color:#1976d2;text-decoration:underline;">roboeyewizard@gmail.com</a></p>
+        </div>
+    </section>
+    <section id="gallery" style="max-width: 1100px; margin: 2rem auto; padding: 2rem 1rem; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;">
+            <h2 style="text-align:left;margin:0;">Gallery</h2>
+            <button id="gallery-toggle" aria-expanded="true" style="background:none;border:none;outline:none;cursor:pointer;padding:0 0.5rem;font-size:2rem;color:#005fa3;transition:transform 0.3s;">
+                <span id="gallery-arrow" style="display:inline-block;transition:transform 0.3s;">&#9660;</span>
+            </button>
+        </div>
+        <div id="gallery-content" style="display:flex;flex-wrap:nowrap;gap:1.5rem;overflow-x:auto;padding-bottom:1rem;scrollbar-width:thin;scrollbar-color:#005fa3 #e9f5fb;transition:max-height 0.4s;max-height:400px;">
+            <div style="flex:0 0 260px;max-width:260px;background:#f7fbff;border-radius:10px;box-shadow:0 2px 12px rgba(0,95,163,0.07);padding:0.7rem 0.7rem 1.2rem 0.7rem;display:flex;flex-direction:column;align-items:center;">
+                <img src="Website gallery/20240111_163845.jpg" alt="Gallery Image 1" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;">
+                <p style="text-align:center;margin:0;font-size:1rem;color:#005fa3;font-weight:500;">Gallery Image 1</p>
+            </div>
+            <div style="flex:0 0 260px;max-width:260px;background:#f7fbff;border-radius:10px;box-shadow:0 2px 12px rgba(0,95,163,0.07);padding:0.7rem 0.7rem 1.2rem 0.7rem;display:flex;flex-direction:column;align-items:center;">
+                <img src="Website gallery/20240401_125305.jpg" alt="Gallery Image 2" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;">
+                <p style="text-align:center;margin:0;font-size:1rem;color:#005fa3;font-weight:500;">Gallery Image 2</p>
+            </div>
+            <div style="flex:0 0 260px;max-width:260px;background:#f7fbff;border-radius:10px;box-shadow:0 2px 12px rgba(0,95,163,0.07);padding:0.7rem 0.7rem 1.2rem 0.7rem;display:flex;flex-direction:column;align-items:center;">
+                <img src="Website gallery/20240426_145607.jpg" alt="Gallery Image 3" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;">
+                <p style="text-align:center;margin:0;font-size:1rem;color:#005fa3;font-weight:500;">Gallery Image 3</p>
+            </div>
+            <div style="flex:0 0 260px;max-width:260px;background:#f7fbff;border-radius:10px;box-shadow:0 2px 12px rgba(0,95,163,0.07);padding:0.7rem 0.7rem 1.2rem 0.7rem;display:flex;flex-direction:column;align-items:center;">
+                <img src="Website gallery/20250527_163716.jpg" alt="Gallery Image 4" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;">
+                <p style="text-align:center;margin:0;font-size:1rem;color:#005fa3;font-weight:500;">Gallery Image 4</p>
+            </div>
+            <div style="flex:0 0 260px;max-width:260px;background:#f7fbff;border-radius:10px;box-shadow:0 2px 12px rgba(0,95,163,0.07);padding:0.7rem 0.7rem 1.2rem 0.7rem;display:flex;flex-direction:column;align-items:center;">
+                <img src="Website gallery/20250607_194741.jpg" alt="Gallery Image 5" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;">
+                <p style="text-align:center;margin:0;font-size:1rem;color:#005fa3;font-weight:500;">Gallery Image 5</p>
+            </div>
+        </div>
+    </section>
+    <section id="blog" style="display:block;">
+        <h2>Blog</h2>
+        <section id="blog-cctv" style="max-width:900px;margin:2rem auto 0 auto;padding:2rem 1rem;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+            <h3>How CCTV Works & Its Features</h3>
+            <article>
+                <h4>How CCTV Works</h4>
+                <p>
+                    CCTV (Closed-Circuit Television) systems use cameras to capture video footage, which is then transmitted to a set of monitors or recording devices. Unlike broadcast television, CCTV is a closed system, meaning the video is only accessible to those with access to the system. Modern CCTV systems can be analog or digital (IP-based), and often include features like remote viewing, motion detection, and cloud storage.
+                </p>
+                <ul>
+                    <li><strong>Cameras:</strong> Capture video footage of the monitored area.</li>
+                    <li><strong>Cables/Network:</strong> Transmit video signals from cameras to monitors or recorders.</li>
+                    <li><strong>DVR/NVR:</strong> Digital Video Recorder (DVR) or Network Video Recorder (NVR) stores and manages video footage.</li>
+                    <li><strong>Monitors:</strong> Display live or recorded video for review.</li>
+                </ul>
+                <h4>Key Features of Modern CCTV Systems</h4>
+                <ul>
+                    <li><strong>High-Definition Video:</strong> Clear, detailed footage for better identification.</li>
+                    <li><strong>Remote Access:</strong> View live or recorded video from anywhere via smartphone or computer.</li>
+                    <li><strong>Motion Detection:</strong> Alerts and records only when movement is detected, saving storage space.</li>
+                    <li><strong>Night Vision:</strong> Infrared LEDs allow cameras to see in low-light or complete darkness.</li>
+                    <li><strong>Cloud Storage:</strong> Securely store video footage offsite for added protection.</li>
+                    <li><strong>Two-Way Audio:</strong> Communicate through cameras equipped with microphones and speakers.</li>
+                    <li><strong>Wide-Angle & PTZ Cameras:</strong> Pan-Tilt-Zoom (PTZ) and wide-angle lenses cover larger areas.</li>
+                    <li><strong>Integration:</strong> Connect with alarms, access control, and smart home systems.</li>
+                </ul>
+                <p>
+                    CCTV systems are essential for security in homes, businesses, and public spaces, providing real-time monitoring, evidence collection, and peace of mind.
+                </p>
+            </article>
+            <div style="margin-top:2rem;padding:1.2rem;background:#f7fbff;border-radius:8px;box-shadow:0 1px 6px rgba(0,95,163,0.07);">
+                <h4 style="color:#005fa3;margin-bottom:0.7rem;">Technical Notes</h4>
+                <ul style="margin:0 0 0 1.2rem;padding:0;font-size:1.05rem;line-height:1.7;">
+                    <li><a href="https://en.wikipedia.org/wiki/Closed-circuit_television" target="_blank" style="color:#005fa3;text-decoration:underline;">What is CCTV? (Wikipedia)</a></li>
+                    <li><a href="https://www.axis.com/solutions/video-surveillance" target="_blank" style="color:#005fa3;text-decoration:underline;">Modern Video Surveillance Solutions</a></li>
+                    <li><a href="https://www.cisco.com/c/en/us/solutions/collateral/executive-perspectives/annual-cybersecurity-report/acr-2018/2018-annual-cybersecurity-report.pdf" target="_blank" style="color:#005fa3;text-decoration:underline;">Cybersecurity in CCTV Networks (Cisco Report)</a></li>
+                    <li><a href="https://www.ifsecglobal.com/video-surveillance/" target="_blank" style="color:#005fa3;text-decoration:underline;">Latest Trends in Video Surveillance</a></li>
+                </ul>
+            </div>
+        </section>
+    </section>
+    <section id="book-now" style="max-width:1200px;margin:2rem auto;padding:2.5rem 1.5rem;background:linear-gradient(120deg,#0f2027 0%,#2c5364 100%);border-radius:18px;box-shadow:0 4px 24px rgba(0,0,0,0.13);">
+        <h2 style="text-align:center;color:#fff;font-size:2.2rem;font-weight:700;letter-spacing:1.5px;margin-bottom:2.2rem;text-shadow:0 2px 12px rgba(0,0,0,0.18);">Book Now</h2>
+        <div style="display:flex;flex-wrap:wrap;gap:2.2rem;justify-content:center;">
+            <div style="flex:1 1 280px;max-width:340px;min-width:260px;position:relative;overflow:hidden;min-height:420px;background:linear-gradient(rgba(0,51,102,0.55),rgba(0,51,102,0.38)),url('service photo/laptop/laptop.jpg') center/cover no-repeat;border-radius:14px;box-shadow:0 2px 16px rgba(0,0,0,0.13);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:2.2rem 1.2rem 1.7rem 1.2rem;">
+                <h3 style="color:#fff;font-size:1.3rem;font-weight:600;margin-bottom:0.7rem;text-shadow:0 2px 8px rgba(0,0,0,0.18);">Laptop Service Booking</h3>
+                <p style="color:#fff;font-size:1.05rem;line-height:1.5;margin-bottom:1.1rem;text-shadow:0 1px 6px rgba(0,0,0,0.18);">Book a professional laptop repair or upgrade. Fast, reliable, and affordable service for all brands and issues.</p>
+                <a href="https://forms.gle/B2g8VsnErhtDis976" style="display:inline-block;padding:0.7rem 1.5rem;background:#ffd700;color:#0f2027;border-radius:7px;text-decoration:none;font-weight:600;font-size:1.08rem;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background 0.2s;" target="_blank" rel="noopener">Book Now</a>
+            </div>
+            <div style="flex:1 1 280px;max-width:340px;min-width:260px;position:relative;overflow:hidden;min-height:420px;background:linear-gradient(rgba(0,51,102,0.55),rgba(0,51,102,0.38)),url('service photo/cctv/20250607_194744.jpg') center/cover no-repeat;border-radius:14px;box-shadow:0 2px 16px rgba(0,0,0,0.13);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:2.2rem 1.2rem 1.7rem 1.2rem;">
+                <h3 style="color:#fff;font-size:1.3rem;font-weight:600;margin-bottom:0.7rem;text-shadow:0 2px 8px rgba(0,0,0,0.18);">CCTV Installation & Support</h3>
+                <p style="color:#fff;font-size:1.05rem;line-height:1.5;margin-bottom:1.1rem;text-shadow:0 1px 6px rgba(0,0,0,0.18);">Book a CCTV installation or maintenance visit. Secure your home or business with expert camera solutions.</p>
+                <a href="https://forms.gle/B2g8VsnErhtDis976" style="display:inline-block;padding:0.7rem 1.5rem;background:#ffd700;color:#0f2027;border-radius:7px;text-decoration:none;font-weight:600;font-size:1.08rem;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background 0.2s;" target="_blank" rel="noopener">Book Now</a>
+            </div>
+            <div style="flex:1 1 280px;max-width:340px;min-width:260px;position:relative;overflow:hidden;min-height:420px;background:linear-gradient(rgba(0,51,102,0.55),rgba(0,51,102,0.38)),url('service photo/attendance/20250412_144120.jpg') center/cover no-repeat;border-radius:14px;box-shadow:0 2px 16px rgba(0,0,0,0.13);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:2.2rem 1.2rem 1.7rem 1.2rem;">
+                <h3 style="color:#fff;font-size:1.3rem;font-weight:600;margin-bottom:0.7rem;text-shadow:0 2px 8px rgba(0,0,0,0.18);">Attendance Tracking System</h3>
+                <p style="color:#fff;font-size:1.05rem;line-height:1.5;margin-bottom:1.1rem;text-shadow:0 1px 6px rgba(0,0,0,0.18);">Book installation or support for biometric and RFID attendance tracking systems for your organization.</p>
+                <a href="https://forms.gle/B2g8VsnErhtDis976" style="display:inline-block;padding:0.7rem 1.5rem;background:#ffd700;color:#0f2027;border-radius:7px;text-decoration:none;font-weight:600;font-size:1.08rem;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background 0.2s;" target="_blank" rel="noopener">Book Now</a>
+            </div>
+            <div style="flex:1 1 280px;max-width:340px;min-width:260px;position:relative;overflow:hidden;min-height:420px;background:linear-gradient(rgba(0,51,102,0.55),rgba(0,51,102,0.38)),url('service photo/avdp/avdp.jpg') center/cover no-repeat;border-radius:14px;box-shadow:0 2px 16px rgba(0,0,0,0.13);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:2.2rem 1.2rem 1.7rem 1.2rem;">
+                <h3 style="color:#fff;font-size:1.3rem;font-weight:600;margin-bottom:0.7rem;text-shadow:0 2px 8px rgba(0,0,0,0.18);">Audio Video Door Phone</h3>
+                <p style="color:#fff;font-size:1.05rem;line-height:1.5;margin-bottom:1.1rem;text-shadow:0 1px 6px rgba(0,0,0,0.18);">Book installation or service for advanced audio/video door phone systems for enhanced security and convenience.</p>
+                <a href="https://forms.gle/B2g8VsnErhtDis976" style="display:inline-block;padding:0.7rem 1.5rem;background:#ffd700;color:#0f2027;border-radius:7px;text-decoration:none;font-weight:600;font-size:1.08rem;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background 0.2s;" target="_blank" rel="noopener">Book Now</a>
+            </div>
+            <div style="flex:1 1 280px;max-width:340px;min-width:260px;position:relative;overflow:hidden;min-height:420px;background:linear-gradient(rgba(0,51,102,0.55),rgba(0,51,102,0.38)),url('service photo/networking/20250129_204851.jpg') center/cover no-repeat;border-radius:14px;box-shadow:0 2px 16px rgba(0,0,0,0.13);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:2.2rem 1.2rem 1.7rem 1.2rem;">
+                <h3 style="color:#fff;font-size:1.3rem;font-weight:600;margin-bottom:0.7rem;text-shadow:0 2px 8px rgba(0,0,0,0.18);">Networking Service & Support</h3>
+                <p style="color:#fff;font-size:1.05rem;line-height:1.5;margin-bottom:1.1rem;text-shadow:0 1px 6px rgba(0,0,0,0.18);">Book professional networking setup, troubleshooting, and support for your home or business.</p>
+                <a href="https://forms.gle/B2g8VsnErhtDis976" style="display:inline-block;padding:0.7rem 1.5rem;background:#ffd700;color:#0f2027;border-radius:7px;text-decoration:none;font-weight:600;font-size:1.08rem;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background 0.2s;" target="_blank" rel="noopener">Book Now</a>
+            </div>
+        </div>
+    </section>
+    <footer style="background:linear-gradient(120deg,#f8fafc 0%,#cfd8dc 100%);color:#222;padding:2.5rem 0 1.2rem 0;margin-top:3rem;box-shadow:0 -2px 12px rgba(0,0,0,0.06);font-size:1rem;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2.5rem 3rem;justify-content:space-between;align-items:flex-start;padding:0 1.5rem;">
+    <div style="flex:1 1 220px;min-width:220px;">
+      <img src="business logo/logo-transparent.png" alt="Robo Eye Wizard Logo" style="width:60px;height:60px;border-radius:12px;background:transparent;object-fit:contain;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:1rem;">
+      <h3 style="margin:0 0 0.5rem 0;font-size:1.3rem;font-weight:700;letter-spacing:1px;color:#263238;">Robo Eye Wizard</h3>
+      <p style="margin:0 0 1rem 0;line-height:1.6;color:#37474f;">Your trusted partner for professional laptop, CCTV, and IT services. Quality, reliability, and customer satisfaction are our top priorities.</p>
+    </div>
+    <div style="flex:1 1 160px;min-width:160px;">
+      <h4 style="margin-bottom:0.7rem;font-size:1.1rem;color:#1976d2;">Quick Links</h4>
+      <ul style="list-style:none;padding:0;margin:0;line-height:2;">
+        <li><a href="#home" style="color:#263238;text-decoration:none;font-weight:500;">Home</a></li>
+        <li><a href="#services" style="color:#263238;text-decoration:none;font-weight:500;">Services</a></li>
+        <li><a href="#about" style="color:#263238;text-decoration:none;font-weight:500;">About</a></li>
+        <li><a href="#gallery" style="color:#263238;text-decoration:none;font-weight:500;">Gallery</a></li>
+        <li><a href="#contact" style="color:#263238;text-decoration:none;font-weight:500;">Contact</a></li>
+        <li><a href="#blog-cctv" style="color:#263238;text-decoration:none;font-weight:500;">Blog</a></li>
+      </ul>
+    </div>
+    <div style="flex:1 1 220px;min-width:220px;">
+      <h4 style="margin-bottom:0.7rem;font-size:1.1rem;color:#1976d2;">Contact Info</h4>
+      <ul style="list-style:none;padding:0;margin:0;line-height:2;">
+        <li><span style="font-weight:600;color:#263238;">Phone:</span> <a href="tel:8961428790" style="color:#263238;text-decoration:none;font-weight:500;">8961428790</a></li>
+        <li><span style="font-weight:600;color:#263238;">Email:</span> <a href="mailto:roboeyewizard@gmail.com" style="color:#263238;text-decoration:none;font-weight:500;">roboeyewizard@gmail.com</a></li>
+        <li><span style="font-weight:600;color:#263238;">Address:</span> <span style="color:#37474f;">31/A, Vidyasagar road, dum dum cant: kolkata-700065</span></li>
+      </ul>
+    </div>
+    <div style="flex:1 1 160px;min-width:160px;">
+      <h4 style="margin-bottom:0.7rem;font-size:1.1rem;color:#1976d2;">Follow Us</h4>
+      <div style="display:flex;gap:0.7rem;align-items:center;">
+        <a href="#" style="color:#263238;font-size:1.5rem;" title="Facebook"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg></a>
+        <a href="#" style="color:#263238;font-size:1.5rem;" title="Twitter"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.83 9.83 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.916 4.916 0 0 0-8.38 4.482C7.691 8.095 4.066 6.13 1.64 3.161c-.542.929-.856 2.01-.857 3.17 0 2.188 1.115 4.116 2.823 5.247a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417A9.867 9.867 0 0 1 0 21.543a13.94 13.94 0 0 0 7.548 2.209c9.057 0 14.009-7.496 14.009-13.986 0-.21-.005-.423-.015-.633A9.936 9.936 0 0 0 24 4.557z"/></svg></a>
+        <a href="#" style="color:#263238;font-size:1.5rem;" title="LinkedIn"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.327-.027-3.037-1.849-3.037-1.851 0-2.132 1.445-2.132 2.939v5.667H9.358V9h3.414v1.561h.049c.476-.899 1.637-1.849 3.37-1.849 3.602 0 4.267 2.368 4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.549C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.271V1.723C24 .771 23.2 0 22.225 0z"/></svg></a>
+        <a href="#" style="color:#263238;font-size:1.5rem;" title="Instagram"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.417.967-.967 2.14-1.225 3.417-1.283C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.775.13 4.602.388 3.635 1.355 2.668 2.322 2.41 3.495 2.352 4.772.013 8.332 0 8.741 0 12c0 3.259.013 3.668.072 4.948.058 1.277.316 2.45 1.283 3.417.967.967 2.14 1.225 3.417 1.283C8.332 23.987 8.741 24 12 24c3.259 0 3.668-.013 4.948-.072 1.277-.058 2.45-.316 3.417-1.283.967-.967 1.225-2.14 1.283-3.417.059-1.28.072-1.689.072-4.948 0-3.259-.013-3.668-.072-4.948-.058-1.277-.316-2.45-1.283-3.417-.967-.967-2.14-1.225-3.417-1.283C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a3.999 3.999 0 1 1 0-7.998 3.999 3.999 0 0 1 0 7.998zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:2.5rem;font-size:0.98rem;color:#263238;letter-spacing:0.5px;">
+    &copy; 2025 Robo Eye Wizard. All rights reserved. | Designed with <span style="color:#ffd700;">&#9733;</span> by Robo Eye Wizard Team
+  </div>
+</footer>
+    <script src="script.js"></script>
+    <!-- Services nav separation and visual enhancement -->
+    <script>
+    const servicesLink = document.querySelector('.dropbtn');
+    const dropdownContent = document.querySelector('.dropdown-content');
+    if (servicesLink && dropdownContent) {
+        servicesLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+            // Optional: close dropdown when clicking outside
+            document.addEventListener('click', function handler(event) {
+                if (!dropdownContent.contains(event.target) && event.target !== servicesLink) {
+                    dropdownContent.style.display = 'none';
+                    document.removeEventListener('click', handler);
+                }
+            });
+        });
+    }
+    </script>
+    <!-- Add IT Service image to dropdown -->
+    <style>
+    .dropdown-content .it-service-img {
+        display: flex;
+        align-items: center;
+        padding: 0.8rem 1.2rem;
+        border-bottom: 1px solid #f0f0f0;
+        background: none;
+    }
+    .dropdown-content .it-service-img img {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+        border-radius: 6px;
+        object-fit: cover;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    </style>
+    <!-- Gallery collapsible arrow logic -->
+    <script>
+    const galleryToggle = document.getElementById('gallery-toggle');
+    const galleryContent = document.getElementById('gallery-content');
+    const galleryArrow = document.getElementById('gallery-arrow');
+    if (galleryToggle && galleryContent && galleryArrow) {
+        galleryToggle.addEventListener('click', function() {
+            const expanded = galleryToggle.getAttribute('aria-expanded') === 'true';
+            galleryToggle.setAttribute('aria-expanded', !expanded);
+            if (expanded) {
+                galleryContent.style.maxHeight = '0';
+                galleryContent.style.overflow = 'hidden';
+                galleryArrow.style.transform = 'rotate(-90deg)';
+            } else {
+                galleryContent.style.maxHeight = '400px';
+                galleryContent.style.overflow = 'auto';
+                galleryArrow.style.transform = 'rotate(0deg)';
+            }
+        });
+    }
+    </script>
+</body>
+</html>

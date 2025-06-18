@@ -597,4 +597,15 @@ section, #gallery, .service, .slider, .slider .slide {
     font-size: 1.05rem;
     padding: 0.7rem 0.7rem;
   }
+  .header-logo-corner {
+    position: absolute !important;
+    left: 12px !important;
+    top: 18px !important;
+    z-index: 20;
+    margin: 0 !important;
+  }
+  .header-logo-corner img {
+    width: 44px !important;
+    height: 44px !important;
+  }
 }

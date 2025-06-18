@@ -4,14 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Robo Eye Wizard</title>
-    <link rel="preload" as="image" href="business logo/logo-transparent.png">
-    <link rel="preload" as="image" href="loading time/loading web.gif">
-    <link rel="preload" as="image" href="Website gallery/20240111_163845.jpg">
-    <link rel="preload" as="image" href="Website gallery/20240401_125305.jpg">
-    <link rel="preload" as="image" href="Website gallery/20240426_145607.jpg">
-    <link rel="preload" as="image" href="Website gallery/20250527_163716.jpg">
-    <link rel="preload" as="image" href="Website gallery/20250607_194741.jpg">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preload" as="image" href="business logo/logo-transparent.png" fetchpriority="high">
+    <link rel="preload" as="image" href="website slider image/20220517_161814.jpg" imagesrcset="website slider image/20220517_161814.jpg 1920w" fetchpriority="high">
+    <link rel="stylesheet" href="style.css" media="all" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -31,18 +27,6 @@
         <div style="margin-top:1.2rem;color:#fff;font-size:1.3rem;font-weight:600;letter-spacing:1px;">Robo Eye Wizard</div>
         <div style="margin-top:0.5rem;color:#ffd700;font-size:1.1rem;letter-spacing:2px;">Loading...</div>
     </div>
-    <style>
-    @keyframes spin { 100% { transform: rotate(360deg); } }
-    </style>
-    <script>
-    window.addEventListener('load', function() {
-        const loader = document.getElementById('loader');
-        if(loader) {
-            loader.style.opacity = '0';
-            setTimeout(() => loader.style.display = 'none', 600);
-        }
-    });
-    </script>
     <header style="padding:0;margin:0;border:none;background:none;box-shadow:none;position:relative;">
         <div class="slider" style="position:relative;width:100vw;height:100vh;max-width:100vw;max-height:100vh;overflow:hidden;">
             <div style="position:absolute;top:30px;left:30px;z-index:10;display:flex;align-items:center;gap:1.5rem;">
@@ -62,7 +46,7 @@
                 </button>
             </div>
             <div class="slide active">
-                <img src="website slider image/20220517_161814.jpg" alt="Slider Image 1" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+                <img src="website slider image/20220517_161814.jpg" alt="Slider Image 1" style="width:100%;height:100%;object-fit:cover;" loading="eager" width="1920" height="900" fetchpriority="high">
             </div>
             <div class="slide">
                 <img src="website slider image/20220602_162156.jpg" alt="Slider Image 2" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
@@ -111,10 +95,20 @@
             <a href="#gallery">Gallery</a>
             <a href="#blog-cctv">Blog</a>
         </nav>
-        <div class="header-logo-right">
-            <img src="https://drive.google.com/uc?export=view&id=12f2JltaVuMxddc8Gd1u1O_stVdoWbq6w" alt="Right Logo" loading="lazy" />
-        </div>
     </header>
+    <style>
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
+    <script src="script.js" defer></script>
+    <script>
+    window.addEventListener('load', function() {
+        const loader = document.getElementById('loader');
+        if(loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => loader.style.display = 'none', 600);
+        }
+    });
+    </script>
     <script>
     // Collapsible menu toggle
     document.addEventListener('DOMContentLoaded', function() {
@@ -374,7 +368,6 @@
     &copy; 2025 Robo Eye Wizard. All rights reserved. | Designed with <span style="color:#ffd700;">&#9733;</span> by Robo Eye Wizard Team
   </div>
 </footer>
-    <script src="script.js"></script>
     <!-- Services nav separation and visual enhancement -->
     <script>
     const servicesLink = document.querySelector('.dropbtn');
@@ -467,9 +460,8 @@
       }
     }
     /* Optimize images for lazy loading */
-    .slider img, #gallery img, section img {
-      loading: lazy;
-    }
+    /* Remove invalid CSS property 'loading' */
+    /* Use HTML attribute loading="lazy" directly on <img> tags instead */
     /* Touch target improvements */
     button, a {
       touch-action: manipulation;

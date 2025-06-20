@@ -189,43 +189,47 @@ nav {
 }
 .dropdown {
     position: relative;
-    display: inline-block;
+    z-index: 40;
 }
 .dropbtn {
     background: none;
-    color: inherit;
     border: none;
+    color: inherit;
     font: inherit;
     cursor: pointer;
-    padding: 12px 15px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    width: 100%;
-    text-align: left;
+    text-decoration: none;
+    padding: 0;
+    outline: none;
 }
 .dropdown-content {
-    display: none;
+    z-index: 50;
     position: absolute;
-    background-color: white;
-    min-width: 200px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    z-index: 1000;
-    padding: 8px 0;
+    background-color: #fff;
+    min-width: 180px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    border-radius: 6px;
+    margin-top: 0.5rem;
+    left: 0;
+    display: none;
 }
 .dropdown-content a {
-    color: #1a237e;
-    padding: 10px 15px;
+    color: #005fa3;
+    padding: 0.8rem 1.2rem;
     text-decoration: none;
     display: block;
-    font-size: 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    background: none;
+}
+.dropdown-content a:last-child {
+    border-bottom: none;
 }
 .dropdown:hover .dropdown-content,
 .dropdown:focus-within .dropdown-content {
     display: block;
 }
-.dropdown-content a:hover {
-    background-color: #e9f5fb;
+.dropdown:hover .dropbtn,
+.dropdown:focus-within .dropbtn {
+    text-decoration: underline;
 }
 .slider-caption {
     position: absolute;
@@ -494,42 +498,95 @@ section, #gallery, .service, .slider, .slider .slide {
         height: 60vw;
     }
 }
-@media (min-width: 901px) {
-    .collapsible-menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        justify-content: center;
-        padding: 1rem;
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
+
+/* --- Modern Navigation Bar Styles --- */
+.main-navbar {
+    width: 100vw;
+    max-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 2.5vw 0.5rem 2vw;
+    background: rgba(0,51,102,0.97);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1002;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    height: 64px;
+}
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+.nav-logo img {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+.nav-title {
+    color: #ffd700;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-links li a {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.08rem;
+    text-decoration: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+.nav-links li a:hover {
+    background: #e9f5fb;
+    color: #1976d2;
+}
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1003;
+    padding: 10px;
+}
+.hamburger-line {
+    width: 28px;
+    height: 3px;
+    background: #ffd700;
+    border-radius: 2px;
+    transition: all 0.3s;
 }
 @media (max-width: 900px) {
+    .nav-links {
+        display: none;
+    }
     .hamburger-menu {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1001;
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        display: flex;
     }
+    .main-navbar {
+        padding: 0.5rem 1rem;
+    }
+}
 
-    .collapsible-menu .nav-item {
-        width: 100%;
-        text-align: left;
-    }
-
-    .collapsible-menu .nav-item a {
-        padding: 1rem 1.5rem;
-        width: 100%;
-        display: block;
-    }
+/* Ensure header/slider is pushed down below navbar */
+header .slider {
+    margin-top: 64px;
 }
 
 /* Spiral menu animation */
@@ -729,286 +786,6 @@ section, #gallery, .service, .slider, .slider .slide {
     min-width: 120px;
   }
 }
-@media (min-width: 901px) {
-    .collapsible-menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        justify-content: center;
-        padding: 1rem;
-        background: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-}
-@media (max-width: 900px) {
-    .hamburger-menu {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1001;
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .collapsible-menu .nav-item {
-        width: 100%;
-        text-align: left;
-    }
-
-    .collapsible-menu .nav-item a {
-        padding: 1rem 1.5rem;
-        width: 100%;
-        display: block;
-    }
-}
-
-/* Dropdown Menu Styles */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropbtn {
-    background: none;
-    color: inherit;
-    border: none;
-    font: inherit;
-    cursor: pointer;
-    padding: 12px 15px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    width: 100%;
-    text-align: left;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    z-index: 1000;
-    padding: 8px 0;
-}
-
-.dropdown-content a {
-    color: #1a237e;
-    padding: 10px 15px;
-    text-decoration: none;
-    display: block;
-    font-size: 1rem;
-}
-
-.dropdown:hover .dropdown-content,
-.dropdown:focus-within .dropdown-content {
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: #e9f5fb;
-}
-
-/* Blog Sections Styles */
-.blog-section {
-    padding: 3rem 0;
-}
-
-.blog-content {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.blog-post {
-    background: white;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-
-.feature-list,
-.benefits-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.feature,
-.benefit {
-    background: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.feature h4,
-.benefit h4 {
-    color: #1a237e;
-    margin-bottom: 0.8rem;
-}
-
-/* Mobile Styles */
-@media screen and (max-width: 768px) {
-    .dropdown-content {
-        position: static;
-        box-shadow: none;
-        background-color: #f8f9fa;
-        margin: 5px 0;
-    }
-
-    .feature-list,
-    .benefits-list {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 700px) {
-  .footer-rating-review {
-    max-width: 98vw;
-    padding: 1rem 0.3rem 1.2rem 0.3rem;
-  }
-  .rating-bar .star {
-    font-size: 1.5rem;
-  }
-  .review-form {
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-  .review-btn {
-    width: 100%;
-  }
-}
-
-/* Hamburger Menu Styles */
-.hamburger-menu {
-    display: none;
-}
-
-.hamburger-line {
-    width: 24px;
-    height: 2px;
-    background-color: #1a237e;
-    transition: 0.3s ease;
-}
-
-.menu-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-}
-
-.collapsible-menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.95);
-    position: fixed;
-    top: 0;
-    right: -100%;
-    height: 100vh;
-    width: 280px;
-    z-index: 1000;
-    transition: right 0.3s ease;
-    flex-direction: column;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-}
-
-.collapsible-menu.active {
-    right: 0;
-}
-
-.collapsible-menu .nav-item a {
-    color: #1a237e;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1rem;
-    padding: 0.8rem 1.2rem;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-.collapsible-menu .nav-item a:hover {
-    background: #e3f2fd;
-    color: #1976d2;
-}
-
-@media (max-width: 900px) {
-    .hamburger-menu {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding: 12px;
-        background: rgba(255, 255, 255, 0.95);
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1001;
-    }
-
-    .collapsible-menu {
-        display: none;
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 280px;
-        height: 100vh;
-        background: #fff;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding: 80px 1.5rem 2rem;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        gap: 0.5rem;
-    }
-
-    .collapsible-menu.active {
-        display: flex;
-    }
-
-    .menu-overlay.active {
-        display: block;
-    }
-
-    .collapsible-menu .nav-item {
-        width: 100%;
-    }
-
-    .collapsible-menu .nav-item a {
-        display: block;
-        width: 100%;
-        padding: 1rem;
-        border-radius: 6px;
-    }
-
-    .hamburger-menu.active .hamburger-line:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
-    }
-
-    .hamburger-menu.active .hamburger-line:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger-menu.active .hamburger-line:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-    }
-}
 
 /* Modern footer rating and review bar */
 .footer-rating-review {
@@ -1087,4 +864,20 @@ section, #gallery, .service, .slider, .slider .slide {
   overflow-y: auto;
   font-size: 0.98rem;
   color: #37474f;
+}
+@media (max-width: 700px) {
+  .footer-rating-review {
+    max-width: 98vw;
+    padding: 1rem 0.3rem 1.2rem 0.3rem;
+  }
+  .rating-bar .star {
+    font-size: 1.5rem;
+  }
+  .review-form {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .review-btn {
+    width: 100%;
+  }
 }

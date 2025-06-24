@@ -22,13 +22,19 @@
           display:flex;align-items:center;justify-content:space-between;padding:0.7rem 1.2rem;
           background:#1e3a5c; /* Air Force blue */
           box-shadow:0 2px 8px rgba(0,0,0,0.07);position:sticky;top:0;z-index:100;
+          width:100vw;
+          max-width:100vw;
+          min-width:0;
+          margin:0;
         }
         .nav-title { color:#ffd700;font-size:1.35rem;font-weight:700;letter-spacing:1px; }
-        .nav-links { display:flex;gap:1.2rem;list-style:none;margin:0;padding:0; }
+        .nav-links { display:flex;gap:1.2rem;list-style:none;margin:0;padding:0;flex-wrap:wrap; }
+        .nav-links li { flex:1 1 auto; text-align:center; min-width:110px; }
         .nav-links li a {
           color:#fff;
           background:rgba(30,58,92,0.92); /* Air Force blue, semi-transparent */
           font-weight:500;text-decoration:none;padding:0.5rem 0.8rem;border-radius:6px;transition:background 0.2s,color 0.2s;
+          display:block;
         }
         .nav-links li a:hover {
           background:#3b5b8c;
@@ -89,6 +95,18 @@
           .slider .slide img { width:100vw !important;height:60vw !important;object-fit:cover; }
           .slider-caption { padding:0.7rem 0.3rem;font-size:1rem;min-width:120px; }
         }
+        @media (max-width: 1300px) {
+          .main-navbar {
+            max-width:100vw;
+            margin:0;
+            padding-left:0.5rem;
+            padding-right:0.5rem;
+          }
+          .nav-links li { min-width:90px; }
+        }
+        @media (max-width: 900px) {
+          .nav-links li { min-width:70px; }
+        }
         .menu-overlay {
           display:none;
           position:fixed;
@@ -131,6 +149,7 @@
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#our-commitment" class="dropbtn">Blog</a></li>
                 <li><a href="#gallery">Gallery</a></li>
+                <li><a href="https://forms.gle/hHJPJz18EAMkG3YX7" target="_blank" rel="noopener">FAQ</a></li>
             </ul>
             <div id="collapsible-menu" class="collapsible-menu">
                 <button id="menu-close" aria-label="Close menu" style="position:absolute;top:10px;right:18px;background:none;border:none;font-size:2rem;color:#ffd700;z-index:1100;cursor:pointer;display:block;">&times;</button>
@@ -140,6 +159,7 @@
                 <div class="nav-item"><a href="#contact">Contact</a></div>
                 <div class="nav-item"><a href="#our-commitment" class="dropbtn">Blog</a></div>
                 <div class="nav-item"><a href="#gallery">Gallery</a></div>
+                <div class="nav-item"><a href="https://forms.gle/hHJPJz18EAMkG3YX7" target="_blank" rel="noopener">FAQ</a></div>
             </div>
         </nav>
         <!-- Modern Navigation Bar End -->

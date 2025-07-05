@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Robo Eye Wizard</title>
     <!-- Preload logo and first slider image for LCP -->
-    <link rel="preload" as="image" href="business logo/logo-transparent.png">
-    <link rel="preload" as="image" href="website slider image/20220517_161814.jpg">
+    <link rel="preload" as="image" href="business logo/logo-transparent.webp">
+    <link rel="preload" as="image" href="website slider image/20220517_161814.webp">
     <!-- Preload main font for FCP -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" media="all" onload="this.media='all'">
-    <link rel="icon" type="image/png" href="business logo/logo-transparent.png">
+    <link rel="icon" type="image/webp" href="business logo/logo-transparent.webp">
     <!-- Critical CSS for navbar and slider (inline for fast paint) -->
     <style>
         html { scroll-behavior: smooth; }
@@ -24,6 +24,41 @@
           width:100vw;max-width:100vw;min-width:0;margin:0;
         }
         .slider { position:relative;width:100vw;height:100vh;max-width:100vw;max-height:100vh;overflow:hidden; }
+        .slider-caption {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: rgba(0,51,102,0.65);
+          color: #fff;
+          padding: 2rem 2.5rem;
+          border-radius: 16px;
+          box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+          text-align: center;
+          z-index: 2;
+          max-width: 90vw;
+        }
+        @media (max-width: 700px) {
+          .slider-caption {
+            padding: 1.1rem 0.7rem;
+            font-size: 1rem;
+            max-width: 96vw;
+            background: rgba(0,51,102,0.82);
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+          }
+          .slider-caption h2 {
+            font-size: 1.25rem !important;
+            margin-bottom: 0.5rem !important;
+            color: #ffd700 !important;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+          }
+          .slider-caption p {
+            font-size: 0.98rem !important;
+            color: #fff !important;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.18);
+          }
+        }
     </style>
     <!-- Defer non-critical CSS -->
     <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
@@ -86,72 +121,47 @@
             <!-- Logo in slider corner removed -->
             <!-- Mobile Menu Overlay -->
             <div id="menu-overlay" class="menu-overlay"></div>
+            <div class="slider-caption">
+                <h2>Experience Fast, Reliable &amp; Secure Service</h2>
+                <p>Your one-stop solution for IT, CCTV, and device support. Book now for expert help and peace of mind!</p>
+            </div>
             <div class="slide active">
-            <picture>
-              <source srcset="website slider image/20220517_161814.webp" type="image/webp">
-              <img src="website slider image/20220517_161814.jpg" alt="Slider Image 1" style="width:100%;height:100%;object-fit:cover;" loading="eager" width="1920" height="900">
-            </picture>
+              <img src="website slider image/20220517_161814.webp" alt="Slider Image 1" style="width:100%;height:100%;object-fit:cover;" loading="eager" width="1920" height="900">
             </div>
             <div class="slide">
-            <picture>
-              <source srcset="website slider image/20220602_162156.webp" type="image/webp">
-              <img src="website slider image/20220602_162156.jpg" alt="Slider Image 2" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
-            </picture>
+              <img src="website slider image/20220602_162156.webp" alt="Slider Image 2" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
             </div>
             <div class="slide">
-            <picture>
-              <source srcset="website slider image/20220606_135816.webp" type="image/webp">
-              <img src="website slider image/20220606_135816.jpg" alt="Slider Image 3" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
-            </picture>
+              <img src="website slider image/20220606_135816.webp" alt="Slider Image 3" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
             </div>
             <div class="slide">
-            <picture>
-              <source srcset="website slider image/20240722_183310.webp" type="image/webp">
-              <img src="website slider image/20240722_183310.jpg" alt="Slider Image 4" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
-            </picture>
+              <img src="website slider image/20240722_183310.webp" alt="Slider Image 4" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
             </div>
             <div class="slide">
-            <picture>
-              <source srcset="website slider image/20240814_143808.webp" type="image/webp">
-              <img src="website slider image/20240814_143808.jpg" alt="Slider Image 5" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
-            </picture>
+              <img src="website slider image/20240814_143808.webp" alt="Slider Image 5" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
             </div>
             <div class="slide">
-            <picture>
-              <source srcset="website slider image/20241211_163035.webp" type="image/webp">
-              <img src="website slider image/20241211_163035.jpg" alt="Slider Image 6" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
-            </picture>
+              <img src="website slider image/20241211_163035.webp" alt="Slider Image 6" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
             </div>
             <div class="slide">
-            <picture>
-              <source srcset="website slider image/20250129_204834.webp" type="image/webp">
-              <img src="website slider image/20250129_204834.jpg" alt="Slider Image 7" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
-            </picture>
+              <img src="website slider image/20250129_204834.webp" alt="Slider Image 7" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
             </div>
             <div class="slide">
-            <picture>
-              <source srcset="website slider image/20250412_144120.webp" type="image/webp">
-              <img src="website slider image/20250412_144120.jpg" alt="Slider Image 8" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
-            </picture>
+              <img src="website slider image/20250412_144120.webp" alt="Slider Image 8" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
             </div>
             <div class="slide">
-            <picture>
-              <source srcset="website slider image/20250530_134729.webp" type="image/webp">
-              <img src="website slider image/20250530_134729.jpg" alt="Slider Image 9" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
-            </picture>
+              <img src="website slider image/20250530_134729.webp" alt="Slider Image 9" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
             </div>
-            <div class="slider-caption" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,51,102,0.65);color:#fff;padding:2rem 2.5rem;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,0.13);text-align:center;z-index:2;max-width:90vw;">
-                <h2 style="font-size:2.2rem;font-weight:700;letter-spacing:1px;margin:0 0 0.7rem 0;">Experience Fast, Reliable &amp; Secure Service</h2>
-                <p style="font-size:1.15rem;font-weight:400;margin:0;">Your one-stop solution for IT, CCTV, and device support. Book now for expert help and peace of mind!</p>
-            </div>        </div>    </header>
+        </div>
+    </header>
     <!-- Move non-critical styles and scripts below -->
     <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
 
     <!-- Main content sections remain unchanged -->
     <section id="home" class="hero">
-        <h2>Your Trusted Partner for Professional Services</h2>
-        <p>We deliver quality solutions for your business needs.</p>
+        <!-- Home hero section removed as requested -->
+        <div style="height:2.5rem;"></div>
     </section>
     <section id="our-commitment">
         <h2>Our Commitment</h2>
@@ -201,38 +211,23 @@
         </div>
         <div id="gallery-content" style="display:flex;flex-wrap:nowrap;gap:1.5rem;overflow-x:auto;padding-bottom:1rem;scrollbar-width:thin;scrollbar-color:#005fa3 #e9f5fb;transition:max-height 0.4s;max-height:400px;">
             <div style="flex:0 0 260px;max-width:260px;background:#f7fbff;border-radius:10px;box-shadow:0 2px 12px rgba(0,95,163,0.07);padding:0.7rem 0.7rem 1.2rem 0.7rem;display:flex;flex-direction:column;align-items:center;">
-                <picture>
-                  <source srcset="Website gallery/20240111_163845.webp" type="image/webp">
-                  <img src="Website gallery/20240111_163845.jpg" alt="Gallery Image 1" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;" loading="lazy">
-                </picture>
+                <img src="Website gallery/20240111_163845.webp" alt="Gallery Image 1" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;" loading="lazy">
                 <p style="text-align:center;margin:0;font-size:1rem;color:#005fa3;font-weight:500;">Gallery Image 1</p>
             </div>
             <div style="flex:0 0 260px;max-width:260px;background:#f7fbff;border-radius:10px;box-shadow:0 2px 12px rgba(0,95,163,0.07);padding:0.7rem 0.7rem 1.2rem 0.7rem;display:flex;flex-direction:column;align-items:center;">
-                <picture>
-                  <source srcset="Website gallery/20240401_125305.webp" type="image/webp">
-                  <img src="Website gallery/20240401_125305.jpg" alt="Gallery Image 2" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;" loading="lazy">
-                </picture>
+                <img src="Website gallery/20240401_125305.webp" alt="Gallery Image 2" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;" loading="lazy">
                 <p style="text-align:center;margin:0;font-size:1rem;color:#005fa3;font-weight:500;">Gallery Image 2</p>
             </div>
             <div style="flex:0 0 260px;max-width:260px;background:#f7fbff;border-radius:10px;box-shadow:0 2px 12px rgba(0,95,163,0.07);padding:0.7rem 0.7rem 1.2rem 0.7rem;display:flex;flex-direction:column;align-items:center;">
-                <picture>
-                  <source srcset="Website gallery/20240426_145607.webp" type="image/webp">
-                  <img src="Website gallery/20240426_145607.jpg" alt="Gallery Image 3" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;" loading="lazy">
-                </picture>
+                <img src="Website gallery/20240426_145607.webp" alt="Gallery Image 3" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;" loading="lazy">
                 <p style="text-align:center;margin:0;font-size:1rem;color:#005fa3;font-weight:500;">Gallery Image 3</p>
             </div>
             <div style="flex:0 0 260px;max-width:260px;background:#f7fbff;border-radius:10px;box-shadow:0 2px 12px rgba(0,95,163,0.07);padding:0.7rem 0.7rem 1.2rem 0.7rem;display:flex;flex-direction:column;align-items:center;">
-                <picture>
-                  <source srcset="Website gallery/20250527_163716.webp" type="image/webp">
-                  <img src="Website gallery/20250527_163716.jpg" alt="Gallery Image 4" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;" loading="lazy">
-                </picture>
+                <img src="Website gallery/20250527_163716.webp" alt="Gallery Image 4" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;" loading="lazy">
                 <p style="text-align:center;margin:0;font-size:1rem;color:#005fa3;font-weight:500;">Gallery Image 4</p>
             </div>
             <div style="flex:0 0 260px;max-width:260px;background:#f7fbff;border-radius:10px;box-shadow:0 2px 12px rgba(0,95,163,0.07);padding:0.7rem 0.7rem 1.2rem 0.7rem;display:flex;flex-direction:column;align-items:center;">
-                <picture>
-                  <source srcset="Website gallery/20250607_194741.webp" type="image/webp">
-                  <img src="Website gallery/20250607_194741.jpg" alt="Gallery Image 5" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;" loading="lazy">
-                </picture>
+                <img src="Website gallery/20250607_194741.webp" alt="Gallery Image 5" style="width:100%;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:0.7rem;object-fit:cover;aspect-ratio:4/3;" loading="lazy">
                 <p style="text-align:center;margin:0;font-size:1rem;color:#005fa3;font-weight:500;">Gallery Image 5</p>
             </div>
         </div>
@@ -241,7 +236,7 @@
         <h2 style="text-align:center;color:#fff;font-size:2.2rem;font-weight:700;letter-spacing:1.5px;margin-bottom:2.2rem;text-shadow:0 2px 12px rgba(0,0,0,0.18);">Book Now</h2>
         <div class="book-now-cards">
             <div class="book-now-card">
-                <img src="service photo/laptop/laptop.jpg" alt="Laptop Service" loading="lazy">
+                <img src="service photo/laptop/laptop.webp" alt="Laptop Service" loading="lazy">
                 <div class="card-content">
                     <h3>Laptop Service</h3>
                     <p>Professional repair & upgrade for all brands.</p>
@@ -249,7 +244,7 @@
                 </div>
             </div>
             <div class="book-now-card">
-                <img src="service photo/cctv/20250607_194744.jpg" alt="CCTV Service" loading="lazy">
+                <img src="service photo/cctv/20250607_194744.webp" alt="CCTV Service" loading="lazy">
                 <div class="card-content">
                     <h3>CCTV Installation</h3>
                     <p>Secure your premises with expert CCTV setup.</p>
@@ -257,7 +252,7 @@
                 </div>
             </div>
             <div class="book-now-card">
-                <img src="service photo/attendance/20250412_144120.jpg" alt="Attendance System" loading="lazy">
+                <img src="service photo/attendance/20250412_144120.webp" alt="Attendance System" loading="lazy">
                 <div class="card-content">
                     <h3>Attendance System</h3>
                     <p>Biometric & RFID attendance solutions.</p>
@@ -265,7 +260,7 @@
                 </div>
             </div>
             <div class="book-now-card">
-                <img src="service photo/avdp/avdp.jpg" alt="AVDP" loading="lazy">
+                <img src="service photo/avdp/avdp.webp" alt="AVDP" loading="lazy">
                 <div class="card-content">
                     <h3>AV Door Phone</h3>
                     <p>Audio/Video door phone installation & service.</p>
@@ -273,7 +268,7 @@
                 </div>
             </div>
             <div class="book-now-card">
-                <img src="service photo/networking/20250129_204851.jpg" alt="Networking" loading="lazy">
+                <img src="service photo/networking/20250129_204851.webp" alt="Networking" loading="lazy">
                 <div class="card-content">
                     <h3>Networking</h3>
                     <p>Setup & support for home and business networks.</p>
@@ -285,7 +280,7 @@
     <footer style="background:linear-gradient(120deg,#f8fafc 0%,#cfd8dc 100%);color:#222;padding:2.5rem 0 1.2rem 0;margin-top:3rem;box-shadow:0 -2px 12px rgba(0,0,0,0.06);font-size:1rem;">
   <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:2.5rem 3rem;justify-content:space-between;align-items:flex-start;padding:0 1.5rem;">
     <div style="flex:1 1 220px;min-width:220px;">
-      <img src="business logo/logo-transparent.png" alt="Robo Eye Wizard Logo" style="width:60px;height:60px;border-radius:12px;background:transparent;object-fit:contain;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:1rem;" loading="lazy">
+      <img src="business logo/logo-transparent.webp" alt="Robo Eye Wizard Logo" style="width:60px;height:60px;border-radius:12px;background:transparent;object-fit:contain;box-shadow:0 2px 8px rgba(0,0,0,0.10);margin-bottom:1rem;" loading="lazy">
       <h3 style="margin:0 0 0.5rem 0;font-size:1.3rem;font-weight:700;letter-spacing:1px;color:#263238;">Robo Eye Wizard</h3>
       <p style="margin:0 0 1rem 0;line-height:1.6;color:#37474f;">Your trusted partner for professional laptop, CCTV, and IT services. Quality, reliability, and customer satisfaction are our top priorities.</p>
     </div>

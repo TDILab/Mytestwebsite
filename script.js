@@ -2,19 +2,40 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Website loaded!');
     // alert('Hello from JavaScript!'); // You can uncomment this to see it work
 
+    // AJAX Contact Form Submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Prepare mailto link
-            const name = contactForm.elements['name'].value;
-            const email = contactForm.elements['email'].value;
-            const message = contactForm.elements['message'].value;
-            const subject = encodeURIComponent('Contact Request from ' + name);
-            const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nMessage: ' + message);
-            window.open(`mailto:roboeyewizard@gmail.com?subject=${subject}&body=${body}`);
-            setTimeout(() => contactForm.reset(), 500);
-        });
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const status = document.getElementById('contactStatus');
+        status.textContent = 'Sending...';
+        // Dynamic backend URL for local and production
+        const backendUrl =
+          window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+            ? 'http://localhost:3001/contact'
+            : 'https://your-production-domain.com/contact'; // TODO: Replace with your real domain for production
+        fetch(backendUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: contactForm.elements['name'].value,
+            email: contactForm.elements['email'].value,
+            message: contactForm.elements['message'].value,
+          }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.success) {
+              status.textContent = 'Message sent! Thank you.';
+              contactForm.reset();
+            } else {
+              status.textContent = 'Error: ' + (data.error || 'Could not send message.');
+            }
+          })
+          .catch(() => {
+            status.textContent = 'Network error. Please try again later.';
+          });
+      });
     }
 
     // Image slider logic

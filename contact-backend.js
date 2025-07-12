@@ -37,5 +37,31 @@ app.post('/contact', async (req, res) => {
   }
 });
 
+// Global visitor counter (simple file-based)
+const fs = require('fs');
+const COUNTER_FILE = 'visitor-count.txt';
+
+app.get('/visitor-count', (req, res) => {
+  let count = 0;
+  try {
+    if (fs.existsSync(COUNTER_FILE)) {
+      count = parseInt(fs.readFileSync(COUNTER_FILE, 'utf8')) || 0;
+    }
+  } catch (e) {}
+  res.json({ count });
+});
+
+app.post('/visitor-count', (req, res) => {
+  let count = 0;
+  try {
+    if (fs.existsSync(COUNTER_FILE)) {
+      count = parseInt(fs.readFileSync(COUNTER_FILE, 'utf8')) || 0;
+    }
+  } catch (e) {}
+  count++;
+  fs.writeFileSync(COUNTER_FILE, count.toString());
+  res.json({ count });
+});
+
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

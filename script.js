@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Global visitor counter logic (backend)
+    const visitorNumber = document.getElementById('visitor-number');
+    if (visitorNumber) {
+      fetch('/visitor-count', { method: 'POST' })
+        .then(res => res.json())
+        .then(data => { visitorNumber.textContent = data.count; })
+        .catch(() => { visitorNumber.textContent = '...'; });
+    }
     console.log('Website loaded!');
     // alert('Hello from JavaScript!'); // You can uncomment this to see it work
 

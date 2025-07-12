@@ -11,7 +11,7 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" media="all" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap&font-display=swap" rel="stylesheet" media="all" onload="this.media='all'">
     <link rel="icon" type="image/webp" href="business logo/logo-transparent.webp">
     <!-- Critical CSS for navbar and slider (inline for fast paint) -->
     <style>
@@ -38,33 +38,10 @@
           z-index: 2;
           max-width: 90vw;
         }
-        @media (max-width: 700px) {
-          .slider-caption {
-            padding: 1.1rem 0.7rem;
-            font-size: 1rem;
-            max-width: 96vw;
-            background: rgba(0,51,102,0.82);
-            border-radius: 10px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.18);
-          }
-          .slider-caption h2 {
-            font-size: 1.25rem !important;
-            margin-bottom: 0.5rem !important;
-            color: #ffd700 !important;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.18);
-          }
-          .slider-caption p {
-            font-size: 0.98rem !important;
-            color: #fff !important;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.18);
-          }
-        }
     </style>
-    <!-- Defer non-critical CSS -->
-    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    <!-- Defer non-critical CSS and JS below the fold -->
     <!-- Google Tag Manager (head) -->
-    <script src="gtm-head.js"></script>
+    <script src="gtm-head.js" defer></script>
     <!-- End Google Tag Manager (head) -->
 </head>
 <body>
@@ -117,16 +94,24 @@
                 <p>Your one-stop solution for IT, CCTV, and device support. Book now for expert help and peace of mind!</p>
             </div>
             <div class="slide active">
-              <img src="website slider image/20220517_161814.webp" alt="Slider Image 1" style="width:100%;height:100%;object-fit:cover;" loading="eager" width="1920" height="900">
+              <img src="website slider image/20220517_161814.webp" alt="Slider Image 1" class="slider-img" width="1920" height="900"
+                srcset="website slider image/20220517_161814.webp 1920w, website slider image/20220517_161814.webp 1280w, website slider image/20220517_161814.webp 800w"
+                sizes="(max-width: 700px) 100vw, 1920px">
             </div>
             <div class="slide">
-              <img src="website slider image/20240722_183310.webp" alt="Slider Image 2" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
+              <img src="website slider image/20240722_183310.webp" alt="Slider Image 2" class="slider-img" loading="lazy" width="1920" height="900"
+                srcset="website slider image/20240722_183310.webp 1920w, website slider image/20240722_183310.webp 1280w, website slider image/20240722_183310.webp 800w"
+                sizes="(max-width: 700px) 100vw, 1920px">
             </div>
             <div class="slide">
-              <img src="website slider image/20241211_163035.webp" alt="Slider Image 3" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
+              <img src="website slider image/20241211_163035.webp" alt="Slider Image 3" class="slider-img" loading="lazy" width="1920" height="900"
+                srcset="website slider image/20241211_163035.webp 1920w, website slider image/20241211_163035.webp 1280w, website slider image/20241211_163035.webp 800w"
+                sizes="(max-width: 700px) 100vw, 1920px">
             </div>
             <div class="slide">
-              <img src="website slider image/20250129_204834.webp" alt="Slider Image 4" style="width:100%;height:100%;object-fit:cover;" loading="lazy" width="1920" height="900">
+              <img src="website slider image/20250129_204834.webp" alt="Slider Image 4" class="slider-img" loading="lazy" width="1920" height="900"
+                srcset="website slider image/20250129_204834.webp 1920w, website slider image/20250129_204834.webp 1280w, website slider image/20250129_204834.webp 800w"
+                sizes="(max-width: 700px) 100vw, 1920px">
             </div>
         </div>
     </header>
@@ -143,19 +128,16 @@
         <h2>Our Commitment</h2>
         <div class="service-list" id="consulting">
             <div class="service">
-                <h3>Read Our Blog</h3>
-                <p>Stay updated with the latest insights, tips, and stories from our team. We share our commitment to quality, reliability, and customer satisfaction in every post.</p>
-                <a href="#blog" style="display:inline-block;margin-top:0.7rem;padding:0.6rem 1.3rem;background:#1976d2;color:#fff;border-radius:7px;text-decoration:none;font-weight:600;font-size:1.02rem;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background 0.2s;">Read Our Blog</a>
+                <h3>Quality & Reliability</h3>
+                <p>We deliver exceptional IT support, consulting, and project management. Our commitment is to quality, reliability, and customer satisfaction in every service.</p>
             </div>
             <div class="service">
-                <h3>Read Our Blog</h3>
-                <p>Discover how we deliver exceptional IT support, consulting, and project management through our blog articles.</p>
-                <a href="#blog" style="display:inline-block;margin-top:0.7rem;padding:0.6rem 1.3rem;background:#1976d2;color:#fff;border-radius:7px;text-decoration:none;font-weight:600;font-size:1.02rem;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background 0.2s;">Read Our Blog</a>
+                <h3>Expert Team</h3>
+                <p>Our experts provide honest advice, transparent pricing, and reliable service. We go the extra mile for every client, big or small.</p>
             </div>
             <div class="service">
-                <h3>Read Our Blog</h3>
-                <p>Learn more about our values, our team, and our promise to you in our regularly updated blog section.</p>
-                <a href="#blog" style="display:inline-block;margin-top:0.7rem;padding:0.6rem 1.3rem;background:#1976d2;color:#fff;border-radius:7px;text-decoration:none;font-weight:600;font-size:1.02rem;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:background 0.2s;">Read Our Blog</a>
+                <h3>Trust & Support</h3>
+                <p>Building trust, one service at a time. Quality work, timely delivery, and friendly support are our promise to you.</p>
             </div>
         </div>
     </section>
@@ -288,8 +270,29 @@
   </div>
 </footer>
 <!-- Mobile menu toggle logic -->
-<script src="script.js" defer></script>
-<script src="custom.js" defer></script>
+<script src="script.js" type="module" defer></script>
+<!-- custom.js removed if not required, otherwise load dynamically when needed -->
+<script>
+  // Dynamically load custom.js only when needed (example: on review form interaction)
+  document.addEventListener('DOMContentLoaded', function() {
+    const reviewForm = document.querySelector('.review-form');
+    if (reviewForm) {
+      reviewForm.addEventListener('focusin', function loadCustomJS() {
+        if (!window.customJSLoaded) {
+          const script = document.createElement('script');
+          script.src = 'custom.js';
+          script.defer = true;
+          document.body.appendChild(script);
+          window.customJSLoaded = true;
+        }
+      });
+    }
+    // Mark touch and wheel event listeners as passive for scroll performance
+    window.addEventListener('touchstart', function() {}, { passive: true });
+    window.addEventListener('touchmove', function() {}, { passive: true });
+    window.addEventListener('wheel', function() {}, { passive: true });
+  });
+</script>
 <!-- Non-critical styles moved to style.css -->
 </body>
 </html>

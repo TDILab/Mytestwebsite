@@ -1,3 +1,42 @@
+/* Modern Call Us header styles */
+.call-us-header {
+  margin-left: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  background: linear-gradient(90deg,#1976d2 0%,#ffd700 100%);
+  padding: 0.35em 1.1em;
+  border-radius: 9px;
+  box-shadow: 0 2px 8px rgba(25,118,210,0.10);
+}
+.call-us-title {
+  font-size: 1.08rem;
+  color: #fff;
+  font-weight: 700;
+  margin-right: 0.7em;
+  letter-spacing: 0.5px;
+}
+.call-us-number {
+  color: #1976d2;
+  background: #fff;
+  font-weight: 700;
+  font-size: 1.08rem;
+  text-decoration: none;
+  padding: 0.18em 0.7em;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(25,118,210,0.07);
+  transition: background 0.2s, color 0.2s;
+}
+.call-us-number:hover {
+  background: #e3f2fd;
+  color: #005fa3;
+}
+.call-us-sep {
+  color: #ffd700;
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin: 0 0.3em;
+}
 /* Products & Features Section */
 .products-features-section {
   background: linear-gradient(120deg,#f8fafc 0%,#e3f2fd 100%);

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyword Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .keyword-tool-container {
+      max-width: 600px;
+      margin: 3rem auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.09);
+      padding: 2.5rem 1.5rem;
+    }
+    .keyword-tool-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #1976d2;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+    .keyword-tool-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #1976d2;
+    }
+    .keyword-tool-form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1rem;
+      border-radius: 7px;
+      border: 1px solid #e3f2fd;
+      font-size: 1rem;
+      font-family: inherit;
+      min-height: 120px;
+    }
+    .keyword-tool-form button {
+      background: #1976d2;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 0.7rem 1.5rem;
+      font-size: 1.08rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(25,118,210,0.10);
+      transition: background 0.2s;
+    }
+    .keyword-tool-form button:hover {
+      background: #005fa3;
+    }
+    .keyword-results {
+      margin-top: 2rem;
+    }
+    .keyword-results h3 {
+      color: #1976d2;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    .keyword-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 1.05rem;
+      color: #37474f;
+    }
+    .keyword-list li {
+      margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
+      position: relative;
+    }
+    .keyword-list li:before {
+      content: '\2022';
+      color: #ffd700;
+      font-size: 1.2rem;
+      position: absolute;
+      left: -1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="keyword-tool-container">
+    <h1 class="keyword-tool-title">Keyword Analyzer</h1>
+    <form class="keyword-tool-form" id="keyword-tool-form">
+      <label for="keyword-text">Paste your website text or content here:</label>
+      <textarea id="keyword-text" name="keyword-text" required></textarea>
+      <button type="submit">Analyze Keywords</button>
+    </form>
+  <div class="keyword-results" id="keyword-results"></div>
+  </div>
+  <script>
+    function getKeywords(text) {
+      // Remove punctuation, convert to lowercase, split by spaces
+      const words = text.replace(/[^\w\s]/gi, '').toLowerCase().split(/\s+/);
+      const stopwords = [
+        'the','and','is','in','to','of','for','on','with','a','an','by','at','as','it','be','are','was','were','from','or','that','this','we','you','your','our','us','but','not','can','all','will','has','have','had','if','so','do','does','did','about','which','may','more','any','each','other','than','then','such','these','those','their','there','been','out','up','down','over','under','again','very','just','into','no','yes','too','also','only','own','same','some','most','much','many','should','could','would','shall','might','must','because','while','where','when','who','whom','whose','how','what','why','he','she','they','them','his','her','its','i','me','my','mine','you','your','yours','we','us','our','ours'
+      ];
+      const freq = {};
+      words.forEach(word => {
+        if(word && !stopwords.includes(word)) {
+          freq[word] = (freq[word] || 0) + 1;
+        }
+      });
+      // Sort by frequency, descending
+      const sorted = Object.entries(freq).sort((a,b) => b[1]-a[1]);
+      return sorted;
+    }
+    document.getElementById('keyword-tool-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const text = document.getElementById('keyword-text').value;
+      const resultsDiv = document.getElementById('keyword-results');
+      const keywords = getKeywords(text);
+      if(keywords.length === 0) {
+        resultsDiv.innerHTML = '<h3>No keywords found.</h3>';
+      } else {
+        let html = '<h3>Top Keywords</h3><ul class="keyword-list">';
+        keywords.slice(0,20).forEach(([word, count]) => {
+          html += `<li><strong>${word}</strong> <span style="color:#1976d2;font-weight:500;">(${count})</span></li>`;
+        });
+        html += '</ul>';
+        resultsDiv.innerHTML = html;
+      }
+      resultsDiv.style.display = 'block';
+    });
+  </script>
+</body>
+</html>

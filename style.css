@@ -1,3 +1,10 @@
+/* Keyword tool results visibility */
+.keyword-results {
+  display: none;
+}
+.keyword-results.active {
+  display: block;
+}
 /* Contact form direct link styles */
 .contact-form-link-wrap {
   margin-top: 1.2rem;

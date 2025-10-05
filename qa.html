@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q&A - Robo Eye Wizard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  .qa-section { max-width: 800px; margin: 0.7rem auto 1.2rem auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 1.1rem 0.7rem 1.2rem 0.7rem; }
+  .qa-title { text-align: center; color: #1976d2; font-size: 2rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: 1px; }
+  .qa-list { margin: 0; padding: 0; list-style: none; }
+  .qa-item { margin-bottom: 1.1rem; }
+  .qa-question { font-weight: 600; color: #005fa3; font-size: 1.15rem; margin-bottom: 0.3rem; }
+  .qa-answer { color: #37474f; font-size: 1.05rem; margin-left: 0.7rem; }
+  .qa-form { margin-top: 1.1rem; background: #f8fafc; border-radius: 8px; padding: 0.7rem; box-shadow: 0 1px 6px rgba(25,118,210,0.07); }
+    .qa-form label { display: block; font-weight: 600; margin-bottom: 0.5rem; color: #1976d2; }
+    .qa-form input, .qa-form textarea { width: 100%; padding: 0.7rem; border: 1px solid #bcdff1; border-radius: 4px; margin-bottom: 1rem; font-size: 1rem; }
+    .qa-form button { background: #1976d2; color: #fff; border: none; padding: 0.8rem 2.2rem; border-radius: 6px; font-size: 1.08rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+    .qa-form button:hover { background: #005fa3; }
+    .qa-form-success { color: #388e3c; font-weight: 600; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="main-navbar">
+      <div class="nav-title">Robo Eye Wizard</div>
+      <ul class="nav-links">
+  <li><a href="index.html">Home</a></li>
+  <li><a href="index.html#book-now">Services</a></li>
+  <li><a href="index.html#about">About</a></li>
+  <li><a href="index.html#contact">Contact</a></li>
+  <li><a href="qa.html" class="active">Q&amp;A</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section class="qa-section">
+      <h1 class="qa-title">Questions &amp; Answers</h1>
+      <ul class="qa-list">
+        <li class="qa-item">
+          <div class="qa-question">Q: Computer desktop/laptop no display issue?</div>
+          <div class="qa-answer">A: You can carefully open a cabinet case and just detach the ram stick from ram slot and clean gently usung eraser and put it again the ram slot.</div>
+        </li>
+        <li class="qa-item">
+          <div class="qa-question">Q: Computer desktop or laptop startup time BIOS error ?</div>
+          <div class="qa-answer">A: You can goto BIOS setup likely pressing the Del key F10 key F2 key or other device model check online then first set your date time and save then set bios optimize default and save it and exit from bios.</div>
+        </li>
+        <li class="qa-item">
+          <div class="qa-question">Q: Do you offer on-site support?</div>
+          <div class="qa-answer">A: Yes, we offer on-site support for most services in Kolkata and surrounding areas.</div>
+        </li>
+      </ul>
+      <form class="qa-form" id="qaForm">
+        <label for="question">Ask a Question:</label>
+        <input type="text" id="question" name="question" required maxlength="120" placeholder="Type your question here...">
+        <button type="submit">Submit</button>
+        <div class="qa-form-success" id="qaFormSuccess" style="display:none;">Thank you! Your question has been submitted.</div>
+      </form>
+      <div style="margin-top:0.7rem;">
+        <h3 style="font-size:1.01rem;color:#1976d2;font-weight:600;margin-bottom:0.3rem;">Or use our Google Form:</h3>
+        <iframe src="https://forms.gle/hHJPJz18EAMkG3YX7" width="100%" height="420" frameborder="0" style="border-radius:8px;border:1px solid #eee;box-shadow:0 2px 8px rgba(0,0,0,0.07);" allowfullscreen loading="lazy" title="Ask a Question Google Form"></iframe>
+        <div style="margin-top:0.2rem;font-size:0.95rem;color:#37474f;">If the form does not load, <a href="https://forms.gle/hHJPJz18EAMkG3YX7" target="_blank" rel="noopener" style="color:#1976d2;text-decoration:underline;">click here to open in a new tab</a>.</div>
+      </div>
+    </section>
+  </main>
+  <script>
+    document.getElementById('qaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('qaFormSuccess').style.display = 'block';
+      this.reset();
+    });
+  </script>
+</body>
+</html>

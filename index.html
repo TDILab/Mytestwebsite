@@ -20,8 +20,11 @@
         .main-navbar {
           display:flex;align-items:center;justify-content:space-between;padding:0.7rem 1.2rem;
           background:#1e3a5c;
-          box-shadow:0 2px 8px rgba(0,0,0,0.07);position:sticky;top:0;z-index:100;
+          box-shadow:0 2px 8px rgba(0,0,0,0.07);position:sticky;top:2.3rem;z-index:100;
           width:100vw;max-width:100vw;min-width:0;margin:0;
+        }
+        @media (max-width: 700px) {
+          .main-navbar { top:2.8rem; }
         }
         .slider { position:relative;width:100vw;height:100vh;max-width:100vw;max-height:100vh;overflow:hidden; }
         .slider-caption {
@@ -58,42 +61,48 @@
     </noscript>
     <!-- End Google Tag (noscript) -->
     <!-- Stylish Loader Removed -->
+    <!-- New Top Banner for Call Us and Email Us -->
+    <div class="header-top-banner">
+      <span class="call-us-title">Call Us:</span>
+      <a href="tel:6289286232" class="call-us-number">6289286232</a>
+      <span class="call-us-sep">/</span>
+      <a href="tel:8961428790" class="call-us-number">8961428790</a>
+      <span style="margin:0 1.2rem;"></span>
+      <span class="email-us-title">Email Us:</span>
+      <a href="mailto:info@roboeyewizard.in" class="email-us-link">info@roboeyewizard.in</a>
+    </div>
+    <!-- Existing Banner (now for other info or can be left empty/repurposed) -->
+    <div class="header-contact-banner" style="width:100vw;background:#e3f2fd;color:#1976d2;padding:0.5rem 0;text-align:center;font-size:1.08rem;font-weight:500;letter-spacing:0.5px;position:relative;z-index:200;">
+      <!-- You can add other info here, or leave empty for now -->
+    </div>
     <header style="padding:0;margin:0;border:none;background:none;box-shadow:none;position:relative;">
-        <!-- Modern Navigation Bar Start -->
-        <nav class="main-navbar">
-            <div class="nav-title" style="color:#ffd700;font-size:1.35rem;font-weight:700;letter-spacing:1px;display:flex;align-items:center;gap:0.5rem;">
-                Robo Eye Wizard
-            </div>
-            <div class="call-us-header-under">
-              <span class="call-us-title-under">Call Us:</span>
-              <a href="tel:6289286232" class="call-us-number-under">6289286232</a>
-              <span class="call-us-sep-under">/</span>
-              <a href="tel:8961428790" class="call-us-number-under">8961428790</a>
-            </div>
-            </div>
-            <button id="menu-toggle" class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="collapsible-menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#book-now">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#our-commitment" class="dropbtn">Blog</a></li>
-                <li><a href="https://forms.gle/hHJPJz18EAMkG3YX7" target="_blank" rel="noopener">FAQ</a></li>
-            </ul>
-            <div id="collapsible-menu" class="collapsible-menu">
-                <button id="menu-close" aria-label="Close menu" style="position:absolute;top:10px;right:18px;background:none;border:none;font-size:2rem;color:#ffd700;z-index:1100;cursor:pointer;display:block;">&times;</button>
-                <div class="nav-item"><a href="#home">Home</a></div>
-                <div class="nav-item"><a href="#book-now">Services</a></div>
-                <div class="nav-item"><a href="#about">About</a></div>
-                <div class="nav-item"><a href="#contact">Contact</a></div>
-                <div class="nav-item"><a href="#our-commitment" class="dropbtn">Blog</a></div>
-                <div class="nav-item"><a href="https://forms.gle/hHJPJz18EAMkG3YX7" target="_blank" rel="noopener">FAQ</a></div>
-            </div>
-        </nav>
+    <!-- Modern Navigation Bar Start -->
+    <nav class="main-navbar">
+      <div class="nav-title" style="color:#ffd700;font-size:1.35rem;font-weight:700;letter-spacing:1px;display:flex;align-items:center;gap:0.5rem;">
+        Robo Eye Wizard
+      </div>
+      <button id="menu-toggle" class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="collapsible-menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#book-now">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="qa.html">Q&amp;A</a></li>
+      </ul>
+      <div id="collapsible-menu" class="collapsible-menu">
+        <button id="menu-close" aria-label="Close menu" style="position:absolute;top:10px;right:18px;background:none;border:none;font-size:2rem;color:#ffd700;z-index:1100;cursor:pointer;display:block;">&times;</button>
+        <div class="nav-item"><a href="#home">Home</a></div>
+        <div class="nav-item"><a href="#book-now">Services</a></div>
+        <div class="nav-item"><a href="#about">About</a></div>
+        <div class="nav-item"><a href="#contact">Contact</a></div>
+        <div class="nav-item"><a href="#our-commitment" class="dropbtn">Blog</a></div>
+        <div class="nav-item"><a href="https://forms.gle/hHJPJz18EAMkG3YX7" target="_blank" rel="noopener">FAQ</a></div>
+      </div>
+    </nav>
         <!-- Modern Navigation Bar End -->
         <div class="slider" style="position:relative;width:100vw;height:100vh;max-width:100vw;max-height:100vh;overflow:hidden;">
             <!-- Logo in slider corner removed -->
@@ -197,6 +206,13 @@
             <div class="service">
                 <h3>Expert Team</h3>
                 <p>Our experts provide honest advice, transparent pricing, and reliable service. We go the extra mile for every client, big or small.</p>
+                <div class="qa-pointer-wrap" style="margin-top:0.7rem;text-align:left;">
+                  <span style="font-size:1.08rem;color:#1976d2;font-weight:600;">Need help? Visit our </span>
+                  <a href="qa.html" class="qa-pointer-link" style="color:#ffd700;font-weight:700;text-decoration:underline;position:relative;">Q&amp;A section
+                    <span style="display:inline-block;vertical-align:middle;margin-left:0.3em;font-size:1.1em;">&#8594;</span>
+                  </a>
+                  <div style="width:90px;height:3px;background:#ffd700;margin-top:0.2em;margin-left:2px;border-radius:2px;"></div>
+                </div>
             </div>
             <div class="service">
                 <h3>Trust & Support</h3>

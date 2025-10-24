@@ -5,52 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laptop Service Booking | Robo Eye Wizard</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body { font-family: 'Roboto', Arial, sans-serif; background: #f7fbff; margin: 0; }
-        .service-form-container {
-            max-width: 480px;
-            margin: 3rem auto;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 2px 12px rgba(0,95,163,0.08);
-            padding: 2.5rem 2rem 2rem 2rem;
-        }
-        .service-form-container h2 {
-            color: #005fa3;
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        .service-form-container form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.1rem;
-        }
-        .service-form-container input, .service-form-container textarea, .service-form-container select {
-            padding: 0.7rem;
-            border: 1px solid #c6d4e1;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-        .service-form-container button {
-            background: #005fa3;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            padding: 0.8rem;
-            font-size: 1.1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .service-form-container button:hover {
-            background: #003366;
-        }
-        .form-success {
-            color: green;
-            text-align: center;
-            margin-top: 1rem;
-        }
-    </style>
+    <!-- Styles for this page moved to style.css -->
 </head>
 <body>
     <div class="service-form-container">
@@ -59,7 +14,8 @@
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <input type="tel" name="phone" placeholder="Your Phone Number" required>
-            <select name="serviceType" required>
+            <label for="serviceType">Service Type</label>
+            <select id="serviceType" name="serviceType" required>
                 <option value="">Select Service Type</option>
                 <option value="Repair">Repair</option>
                 <option value="Upgrade">Upgrade</option>
@@ -69,7 +25,7 @@
             <textarea name="details" placeholder="Describe your laptop issue or request" rows="4" required></textarea>
             <button type="submit">Book Service</button>
         </form>
-        <div id="form-success" class="form-success" style="display:none;">Thank you! Your request has been submitted.</div>
+    <div id="form-success" class="form-success hidden-section">Thank you! Your request has been submitted.</div>
     </div>
     <script>
     document.getElementById('laptopServiceForm').addEventListener('submit', function(e) {

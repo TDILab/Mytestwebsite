@@ -118,7 +118,7 @@
       } else {
         let html = '<h3>Top Keywords</h3><ul class="keyword-list">';
         keywords.slice(0,20).forEach(([word, count]) => {
-          html += `<li><strong>${word}</strong> <span style="color:#1976d2;font-weight:500;">(${count})</span></li>`;
+          html += `<li><strong>${word}</strong> <span class="kw-count">(${count})</span></li>`;
         });
         html += '</ul>';
         resultsDiv.innerHTML = html;

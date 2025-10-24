@@ -57,12 +57,12 @@
         <label for="question">Ask a Question:</label>
         <input type="text" id="question" name="question" required maxlength="120" placeholder="Type your question here...">
         <button type="submit">Submit</button>
-        <div class="qa-form-success" id="qaFormSuccess" style="display:none;">Thank you! Your question has been submitted.</div>
+        <div class="qa-form-success hidden-section" id="qaFormSuccess">Thank you! Your question has been submitted.</div>
       </form>
-      <div style="margin-top:0.7rem;">
-        <h3 style="font-size:1.01rem;color:#1976d2;font-weight:600;margin-bottom:0.3rem;">Or use our Google Form:</h3>
-        <iframe src="https://forms.gle/hHJPJz18EAMkG3YX7" width="100%" height="420" frameborder="0" style="border-radius:8px;border:1px solid #eee;box-shadow:0 2px 8px rgba(0,0,0,0.07);" allowfullscreen loading="lazy" title="Ask a Question Google Form"></iframe>
-        <div style="margin-top:0.2rem;font-size:0.95rem;color:#37474f;">If the form does not load, <a href="https://forms.gle/hHJPJz18EAMkG3YX7" target="_blank" rel="noopener" style="color:#1976d2;text-decoration:underline;">click here to open in a new tab</a>.</div>
+      <div class="qa-extra">
+        <h3 class="qa-subheading">Or use our Google Form:</h3>
+        <iframe class="iframe-compact" src="https://forms.gle/hHJPJz18EAMkG3YX7" width="100%" height="420" frameborder="0" allowfullscreen loading="lazy" title="Ask a Question Google Form"></iframe>
+        <div class="qa-note">If the form does not load, <a href="https://forms.gle/hHJPJz18EAMkG3YX7" target="_blank" rel="noopener" class="qa-link">click here to open in a new tab</a>.</div>
       </div>
     </section>
   </main>

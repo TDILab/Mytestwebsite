@@ -1,0 +1,26 @@
+{
+  "name": "mytestwebsite",
+  "version": "1.0.0",
+  "description": "service website",
+  "main": "all.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:css:fix": "stylelint \"**/*.css\" --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TDILab/Mytestwebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TDILab/Mytestwebsite/issues"
+  },
+  "homepage": "https://github.com/TDILab/Mytestwebsite#readme",
+  "devDependencies": {
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^39.0.1"
+  }
+}

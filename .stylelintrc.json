@@ -1,0 +1,23 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "ignoreFiles": ["**/all.min.css"],
+  "rules": {
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": [
+          "backdrop-filter",
+          "-webkit-backdrop-filter",
+          "gap",
+          "scroll-snap-type",
+          "scroll-snap-align",
+          "clamp"
+        ]
+      }
+    ],
+    "no-descending-specificity": null,
+    "selector-id-pattern": null,
+    "declaration-block-single-line-max-declarations": null,
+    "no-duplicate-selectors": null
+  }
+}

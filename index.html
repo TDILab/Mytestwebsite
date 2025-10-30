@@ -76,134 +76,36 @@
   .header-contact-banner { min-height: 0px; }
     </style>
     <!-- Defer non-critical CSS and JS below the fold -->
-    <!-- Google Tag: STRICT IDLE-LOAD SCRIPT DISABLED FOR AUDIT
-         (Temporarily removed to isolate DOM.pushNodeByPathToFrontend errors)
-         To restore, re-enable the block below. -->
-    <!--
+    <!-- Google Tag (Google Analytics 4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SHM2X37S3H"></script>
     <script>
-      (function(){
-        // Lightweight stub so other inline code can call gtag without errors.
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){ dataLayer.push(arguments); }
-        window.gtag = gtag;
-        gtag('js', new Date());
-
-        var _gtagRequested = false;
-
-        function loadGtag() {
-          if (_gtagRequested) return;
-          _gtagRequested = true;
-          try {
-            var s = document.createElement('script');
-            s.src = 'https://www.googletagmanager.com/gtag/js?id=G-SHM2X37S3H';
-            s.async = true;
-            s.crossOrigin = 'anonymous';
-            document.head.appendChild(s);
-            // Queue config; the stub will batch this until the real gtag loads.
-            try { gtag('config', 'G-SHM2X37S3H'); } catch (e) { /* ignore */ }
-          } catch (e) {
-            // ignore failures
-          }
-        }
-
-        // Prefer to inject during idle time but use a slightly larger timeout so we don't miss quiet pages.
-        var idleTimeout = 3000; // ms
-        var fallbackTimeout = 5000; // ms after load
-
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(loadGtag, { timeout: idleTimeout });
-        } else {
-          // As a conservative fallback, wait for load then a short timeout.
-          window.addEventListener('load', function(){ setTimeout(loadGtag, fallbackTimeout); }, { once: true });
-        }
-
-        // Also load on first user interaction to ensure early capture for engagement events.
-        var firstHandler = function(){ loadGtag(); removeInteractionListeners(); };
-        function removeInteractionListeners(){ ['pointerdown','keydown','touchstart','wheel'].forEach(function(e){ window.removeEventListener(e, firstHandler, { passive: true }); }); }
-        ['pointerdown','keydown','touchstart','wheel'].forEach(function(ev){ window.addEventListener(ev, firstHandler, { passive: true }); });
-
-        // Safety: ensure gtag loads eventually even if page remains idle (max wait)
-        setTimeout(loadGtag, fallbackTimeout + 2000);
-      })();
+      /* Minimal immediate setup for gtag (do not call config until after load)
+         so the analytics initialization doesn't add to main-thread work during LCP. */
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date());
+      /* Defer the config call until after the page load so it doesn't block render. */
+      window.addEventListener('load', function(){
+        try { gtag('config', 'G-SHM2X37S3H'); } catch (e) { /* ignore */ }
+      });
     </script>
-    -->
+    <!-- End Google Tag -->
 </head>
 <body>
     <!-- Google Tag (noscript) -->
     <noscript>
       <iframe class="hidden-iframe" title="Google Tag Manager (noscript)" src="https://www.googletagmanager.com/ns.html?id=G-SHM2X37S3H" height="0" width="0"></iframe>
     </noscript>
-    <!-- MutationObserver debug (temporary): logs first N mutations during load and emits Performance marks so they appear in traces -->
-    <script>
-      (function(){
-        try {
-          var MAX_RECORDS = 200; // keep larger buffer for triage
-          var records = [];
-          var seq = 0;
-          function safeStackSnippet() {
-            try {
-              return (new Error()).stack.split('\n').slice(2,8).join('\n');
-            } catch (e) { return null; }
-          }
-
-          var mo = new MutationObserver(function(muts){
-            muts.forEach(function(m){
-              try {
-                seq++;
-                var perfNow = (window.performance && performance.now) ? performance.now() : null;
-                var entry = {
-                  id: seq,
-                  type: m.type,
-                  added: (m.addedNodes && m.addedNodes.length) ? Array.from(m.addedNodes).map(function(n){ return n.nodeName + (n.id?('#'+n.id):'') + (n.className?('.'+n.className):''); }) : [],
-                  removed: (m.removedNodes && m.removedNodes.length) ? Array.from(m.removedNodes).map(function(n){ return n.nodeName + (n.id?('#'+n.id):'') + (n.className?('.'+n.className):''); }) : [],
-                  attrName: m.attributeName || null,
-                  timeNow: perfNow,
-                  timeEpoch: Date.now(),
-                  stack: safeStackSnippet()
-                };
-
-                // Create a user timing mark so this mutation shows up in DevTools traces / Lighthouse trace
-                try {
-                  if (perfNow !== null) {
-                    var markName = 'MO#' + seq + '#' + entry.type + (entry.attrName ? '#' + entry.attrName : '');
-                    try { performance.mark(markName); } catch(e) { /* ignore */ }
-                  }
-                } catch (e) { /* ignore */ }
-
-                records.push(entry);
-                // Keep console output small: log first few directly with a stack to help quick inspection
-                if (records.length <= 12) {
-                  console.info('MO:', { id: entry.id, type: entry.type, added: entry.added.length, removed: entry.removed.length, attr: entry.attrName, t: entry.timeNow || entry.timeEpoch }, entry.stack);
-                }
-              } catch(e){ /* ignore */ }
-            });
-            if (records.length >= MAX_RECORDS) {
-              try { mo.disconnect(); console.info('MO: disconnected after', records.length); } catch(e){}
-            }
-          });
-
-          mo.observe(document.documentElement || document.body, { childList: true, subtree: true, attributes: true });
-          // Safety disconnect after T seconds
-          setTimeout(function(){ try { mo.disconnect(); console.info('MO: timeout disconnect, records:', records.length); } catch(e){} }, 12000);
-          // Expose for post-inspection and allow clearing
-          window.__mo_debug = {
-            getRecords: function(){ return records.slice(); },
-            clear: function(){ records.length = 0; seq = 0; try { performance.clearMarks(); } catch(e){} }
-          };
-        } catch (e) { console.warn('MO: init failed', e); }
-      })();
-    </script>
     <!-- End Google Tag (noscript) -->
     <!-- Stylish Loader Removed -->
     <!-- New Top Banner for Call Us and Email Us -->
     <div class="header-top-banner">
-      <span class="call-us-title">Call Us:</span>
+      <!-- Call Us heading removed and replaced with call logo -->
+      <img src="business logo/logo-transparent.png" alt="Call logo" class="call-logo" style="width:40px;height:40px;object-fit:contain;margin-right:8px;" loading="lazy">
       <a href="tel:6289286232" class="call-us-number">6289286232</a>
       <span class="call-us-sep">/</span>
       <a href="tel:8961428790" class="call-us-number">8961428790</a>
-  <span class="gap-mid"></span>
-      <span class="email-us-title">Email Us:</span>
-      <a href="mailto:info@roboeyewizard.in" class="email-us-link">info@roboeyewizard.in</a>
+      <!-- Email section removed per request -->
     </div>
     <!-- Existing Banner (now for other info or can be left empty/repurposed) -->
     <div class="header-contact-banner">
@@ -212,9 +114,7 @@
   <header class="site-header">
     <!-- Modern Navigation Bar Start -->
     <nav class="main-navbar">
-      <div class="nav-title">
-        Robo Eye Wizard
-      </div>
+      <!-- site title removed as requested -->
       <button id="menu-toggle" class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="collapsible-menu">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
@@ -364,13 +264,7 @@
     <section id="contact" class="hidden-section">
       <div class="contact-card">
         <h2>Contact Us</h2>
-        <!-- Click-to-load placeholder for Google Form to avoid loading cross-origin iframe during LCP window -->
-        <div class="iframe-lazy iframe-lazy--form" data-src="https://forms.gle/jESZQVqzLYmd3njS7" data-type="form" style="width:100%;height:600px;">
-          <div class="iframe-lazy__inner" aria-hidden="false">
-            <div class="iframe-lazy__label">Contact Form (click to load)</div>
-            <button class="iframe-lazy__btn" data-action="load">Load Form</button>
-          </div>
-        </div>
+        <iframe class="iframe-form" src="https://forms.gle/jESZQVqzLYmd3njS7" width="100%" height="600" frameborder="0" allowfullscreen loading="lazy" title="Google Form"></iframe>
         <div class="contact-form-link-wrap">
           <a href="https://forms.gle/jESZQVqzLYmd3njS7" target="_blank" rel="noopener" class="contact-form-link-btn">Open Contact Form in New Tab</a>
           <div class="contact-form-link-msg">If the form does not load, please use the button above.</div>
@@ -513,94 +407,16 @@
     </form>
     <div class="review-list"></div>
   </div>
-    <div class="footer-bottom">
+  <div class="footer-bottom">
   &copy; 2025 Robo Eye Wizard. All rights reserved. | Designed with <span class="star-gold">&#9733;</span> by Robo Eye Wizard Team<br>
     <div class="find-us-card">
       <h3 class="find-us-title">Find Us on Google Maps</h3>
-      <!-- Click-to-load placeholder for Google Maps to avoid cross-origin iframe during initial load -->
-      <div class="iframe-lazy iframe-lazy--map" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.3180128069507!2d88.40516516745741!3d22.64192878501898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89f0064240205%3A0xdc53fa4e1386a9df!2sRobo%20Eye%20Wizard!5e0!3m2!1sen!2sin!4v1752319687179!5m2!1sen!2sin" style="width:100%;height:350px;">
-        <div class="iframe-lazy__inner">
-          <div class="iframe-lazy__label">Map (click to load)</div>
-          <button class="iframe-lazy__btn" data-action="load">Load Map</button>
-        </div>
-      </div>
+  <iframe class="iframe-map" title="Google Maps - Robo Eye Wizard" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.3180128069507!2d88.40516516745741!3d22.64192878501898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f89f0064240205%3A0xdc53fa4e1386a9df!2sRobo%20Eye%20Wizard!5e0!3m2!1sen!2sin!4v1752319687179!5m2!1sen!2sin" width="100%" height="350" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </footer>
-<!-- Mobile menu bootstrap + lazy-load full app script -->
-<script>
-  (function(){
-    // Minimal menu bootstrap so keyboard users can open/close menu before full script loads.
-    function initMenuBootstrap(){
-      try {
-        var menuToggle = document.getElementById('menu-toggle');
-        var menuClose = document.getElementById('menu-close');
-        var menu = document.getElementById('collapsible-menu');
-        var overlay = document.getElementById('menu-overlay');
-        if (!menuToggle) return;
-
-        function openMenu(){
-          menuToggle.setAttribute('aria-expanded','true');
-          if (menu) menu.classList.add('open');
-          if (overlay) overlay.classList.add('visible');
-        }
-        function closeMenu(){
-          menuToggle.setAttribute('aria-expanded','false');
-          if (menu) menu.classList.remove('open');
-          if (overlay) overlay.classList.remove('visible');
-        }
-
-        menuToggle.addEventListener('click', function(){
-          var expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-          if (!expanded) openMenu(); else closeMenu();
-        }, { passive: true });
-
-        if (menuClose) menuClose.addEventListener('click', closeMenu, { passive: true });
-        if (overlay) overlay.addEventListener('click', closeMenu, { passive: true });
-        document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); }, { passive: true });
-
-        // Expose small API for the full script to reuse
-        window._menuBootstrap = { open: openMenu, close: closeMenu };
-      } catch (err) { /* ignore */ }
-    }
-
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initMenuBootstrap); else initMenuBootstrap();
-
-    // Lazy-load the heavy module script after idle/load or on first interaction
-    var _appScriptRequested = false;
-    function loadAppScript(){
-      if (_appScriptRequested || window._appScriptLoaded) return;
-      _appScriptRequested = true;
-      try {
-        var s = document.createElement('script');
-        s.type = 'module';
-        s.src = 'script.js';
-        s.defer = true;
-        s.crossOrigin = 'anonymous';
-        document.body.appendChild(s);
-        window._appScriptLoaded = true;
-      } catch (e) { /* ignore */ }
-    }
-
-    var appIdleTimeout = 3000; // ms
-    var appFallback = 5000; // ms after load
-
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadAppScript, { timeout: appIdleTimeout });
-    } else {
-      window.addEventListener('load', function(){ setTimeout(loadAppScript, appFallback); }, { once: true });
-    }
-
-    // Also load on first user interaction for snappy response
-    var appFirst = function(){ loadAppScript(); removeAppInteractionListeners(); };
-    function removeAppInteractionListeners(){ ['pointerdown','keydown','touchstart','wheel'].forEach(function(e){ window.removeEventListener(e, appFirst, { passive: true }); }); }
-    ['pointerdown','keydown','touchstart','wheel'].forEach(function(evt){ window.addEventListener(evt, appFirst, { passive: true }); });
-
-    // Safety: ensure script is attempted to be loaded eventually
-    // Temporarily disabled injection for isolation audit. Re-enable after tests.
-    // setTimeout(loadAppScript, appFallback + 2500);
-  })();
-</script>
+<!-- Mobile menu toggle logic -->
+<script src="script.js" type="module" defer></script>
 <!-- custom.js removed if not required, otherwise load dynamically when needed -->
 <script>
   // Dynamically load custom.js only when needed (example: on review form interaction)
@@ -667,70 +483,5 @@
     })();
   </script>
 <!-- Non-critical styles moved to style.css -->
-<!-- Click-to-load iframe lazy loader: create the real iframe on user action or during idle time to reduce initial DOM complexity -->
-<script>
-  (function(){
-    var placeholders = document.querySelectorAll('.iframe-lazy');
-    if (!placeholders || placeholders.length === 0) return;
-
-    function createIframe(ph) {
-      if (!ph || ph.dataset.loaded) return;
-      var src = ph.getAttribute('data-src') || ph.dataset.src;
-      if (!src) return;
-      try {
-        var iframe = document.createElement('iframe');
-        iframe.src = src;
-        iframe.loading = 'lazy';
-        iframe.decoding = 'async';
-        iframe.title = ph.getAttribute('data-title') || (ph.classList.contains('iframe-lazy--map') ? 'Google Map' : 'Embedded content');
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        iframe.style.border = '0';
-        iframe.referrerPolicy = 'no-referrer-when-downgrade';
-        iframe.setAttribute('aria-hidden', 'false');
-        // allow common features for embeds; keep conservative set
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-
-        // Replace placeholder content with the iframe
-        ph.innerHTML = '';
-        ph.appendChild(iframe);
-        ph.dataset.loaded = '1';
-      } catch (err) {
-        // If creation fails, leave placeholder and add a fallback link
-        if (!ph.querySelector('a')) {
-          var a = document.createElement('a');
-          a.href = src;
-          a.target = '_blank';
-          a.rel = 'noopener';
-          a.textContent = 'Open content in new tab';
-          a.className = 'contact-form-link-btn';
-          ph.appendChild(a);
-        }
-      }
-    }
-
-    function bindPlaceholder(ph) {
-      var btn = ph.querySelector('[data-action="load"]');
-      if (btn) {
-        btn.addEventListener('click', function (e) { e.preventDefault(); createIframe(ph); }, { passive: true });
-        btn.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); createIframe(ph); } });
-      }
-      // Also create the iframe on a direct pointerdown anywhere on the placeholder
-      ph.addEventListener('pointerdown', function () { createIframe(ph); }, { once: true, passive: true });
-    }
-
-    // Attach handlers and schedule idle preload
-    placeholders.forEach(function(ph){
-      bindPlaceholder(ph);
-      var idleTimeout = 4000; // ms
-      var fallbackTimeout = 9000; // ms after load
-      if ('requestIdleCallback' in window) {
-        try { requestIdleCallback(function() { if (!ph.dataset.loaded) createIframe(ph); }, { timeout: idleTimeout }); } catch(e) { /* ignore */ }
-      } else {
-        window.addEventListener('load', function(){ setTimeout(function(){ if (!ph.dataset.loaded) createIframe(ph); }, fallbackTimeout); }, { once: true });
-      }
-    });
-  })();
-</script>
 </body>
 </html>

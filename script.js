@@ -167,4 +167,34 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     })();
+
+        // Hide/show navbar on scroll: slide navbar out when scrolling down, show when scrolling up.
+        (function() {
+            var navbar = document.querySelector('.main-navbar');
+            if (!navbar) return;
+            var lastScroll = window.pageYOffset || document.documentElement.scrollTop;
+            var ticking = false;
+
+            function onScroll() {
+                var st = window.pageYOffset || document.documentElement.scrollTop;
+                // if scrolling down and past a small threshold, hide navbar
+                if (st > lastScroll && st > 60) {
+                    navbar.classList.add('nav-hidden');
+                } else {
+                    // scrolling up — show navbar
+                    navbar.classList.remove('nav-hidden');
+                }
+                lastScroll = st <= 0 ? 0 : st;
+            }
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        onScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+        })();
 });

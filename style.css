@@ -317,8 +317,12 @@
 
 /* Slider image optimization for LCP and FCP */
 .slider-img {
+  /* Reserve intrinsic aspect ratio to avoid layout shifts
+     Width is fluid, height is computed from the image ratio so the
+     browser can reserve space before the image finishes loading. */
   width: 100%;
-  height: 100%;
+  height: auto; /* allow the intrinsic ratio to determine height */
+  aspect-ratio: 1920 / 900; /* matches the width/height attributes on the images */
   object-fit: cover;
   display: block;
 }
@@ -809,6 +813,40 @@ section img {
   border-radius: 10px;
   box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
 }
+
+/* Click-to-load iframe placeholder to avoid loading cross-origin iframes during initial paint */
+.iframe-lazy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  background: linear-gradient(180deg,#f8fafc 0%, #e9f5fb 100%);
+  border: 1px solid #e6eef6;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  overflow: hidden;
+  color: #1976d2;
+}
+
+.iframe-lazy__inner { text-align: center; padding: 1.1rem; }
+.iframe-lazy__label { font-weight: 700; color: #0f3a63; margin-bottom: 0.45rem; }
+.iframe-lazy__btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 0.56rem 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.iframe-lazy__btn:focus { outline: 3px solid rgba(25,118,210,0.18); }
+
+.iframe-lazy--map { min-height: 250px; height: 350px; }
+.iframe-lazy--form { min-height: 420px; height: 600px; }
+
+/* When iframe is created we remove inner controls; keep smooth visual transition */
+.iframe-lazy iframe { width: 100%; height: 100%; border: 0; display: block; }
 
 /* Reduce box-shadow and border-radius for less rendering cost */
 section,

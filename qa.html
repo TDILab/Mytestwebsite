@@ -79,7 +79,13 @@
 
       <div class="qa-extra">
         <h3 class="qa-subheading">Or use our Google Form:</h3>
-        <iframe class="iframe-compact" src="https://forms.gle/hHJPJz18EAMkG3YX7" width="100%" height="420" frameborder="0" allowfullscreen loading="lazy" title="Ask a Question Google Form"></iframe>
+        <!-- Click-to-load placeholder for Google Form to avoid loading cross-origin iframe during initial load -->
+  <div class="iframe-lazy iframe-lazy--form" data-src="https://forms.gle/hHJPJz18EAMkG3YX7" data-type="form">
+          <div class="iframe-lazy__inner">
+            <div class="iframe-lazy__label">Ask a Question (click to load)</div>
+            <button class="iframe-lazy__btn" data-action="load">Load Form</button>
+          </div>
+        </div>
         <div class="qa-note">If the form does not load, <a href="https://forms.gle/hHJPJz18EAMkG3YX7" target="_blank" rel="noopener" class="qa-link">click here to open in a new tab</a>.</div>
       </div>
     </section>
@@ -91,6 +97,63 @@
       document.getElementById('qaFormSuccess').style.display = 'block';
       this.reset();
     });
+  </script>
+  <!-- Small inline script to handle click-to-load iframe placeholders on this page -->
+  <script>
+    (function(){
+      var placeholders = document.querySelectorAll('.iframe-lazy');
+      if (!placeholders || placeholders.length === 0) return;
+
+      function createIframe(ph) {
+        if (!ph || ph.dataset.loaded) return;
+        var src = ph.getAttribute('data-src') || ph.dataset.src;
+        if (!src) return;
+        try {
+          var iframe = document.createElement('iframe');
+          iframe.src = src;
+          iframe.loading = 'lazy';
+          iframe.title = ph.getAttribute('data-title') || 'Embedded content';
+          iframe.style.width = '100%';
+          iframe.style.height = '100%';
+          iframe.style.border = '0';
+          iframe.referrerPolicy = 'no-referrer-when-downgrade';
+          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+          ph.innerHTML = '';
+          ph.appendChild(iframe);
+          ph.dataset.loaded = '1';
+        } catch (err) {
+          if (!ph.querySelector('a')) {
+            var a = document.createElement('a');
+            a.href = src;
+            a.target = '_blank';
+            a.rel = 'noopener';
+            a.textContent = 'Open form in new tab';
+            a.className = 'qa-link';
+            ph.appendChild(a);
+          }
+        }
+      }
+
+      function bindPlaceholder(ph) {
+        var btn = ph.querySelector('[data-action="load"]');
+        if (btn) {
+          btn.addEventListener('click', function (e) { e.preventDefault(); createIframe(ph); }, { passive: true });
+          btn.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); createIframe(ph); } });
+        }
+        ph.addEventListener('pointerdown', function () { createIframe(ph); }, { once: true, passive: true });
+      }
+
+      placeholders.forEach(function(ph){
+        bindPlaceholder(ph);
+        var idleTimeout = 3000;
+        var fallbackTimeout = 6000;
+        if ('requestIdleCallback' in window) {
+          try { requestIdleCallback(function() { if (!ph.dataset.loaded) createIframe(ph); }, { timeout: idleTimeout }); } catch(e) { }
+        } else {
+          window.addEventListener('load', function(){ setTimeout(function(){ if (!ph.dataset.loaded) createIframe(ph); }, fallbackTimeout); }, { once: true });
+        }
+      });
+    })();
   </script>
 </body>
 </html>

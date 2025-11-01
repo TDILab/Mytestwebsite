@@ -135,38 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Footer rating and review bar interactivity
-    (function() {
-        var stars = document.querySelectorAll('.footer-rating-review .star');
-        var selectedRating = 0;
-        stars.forEach(function(star, idx) {
-            star.addEventListener('mouseenter', function() {
-                stars.forEach(function(s, i) { s.classList.toggle('selected', i <= idx); });
-            });
-            star.addEventListener('mouseleave', function() {
-                stars.forEach(function(s, i) { s.classList.toggle('selected', i < selectedRating); });
-            });
-            star.addEventListener('click', function() {
-                selectedRating = idx + 1;
-                stars.forEach(function(s, i) { s.classList.toggle('selected', i < selectedRating); });
-            });
-        });
-        var reviewForm = document.querySelector('.footer-rating-review .review-form');
-        var reviewInput = document.querySelector('.footer-rating-review .review-input');
-        var reviewList = document.querySelector('.footer-rating-review .review-list');
-        if (reviewForm && reviewInput && reviewList) {
-            reviewForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                var text = reviewInput.value.trim();
-                if (text) {
-                    var div = document.createElement('div');
-                    div.textContent = (selectedRating ? '★'.repeat(selectedRating) + ' ' : '') + text;
-                    reviewList.prepend(div);
-                    reviewInput.value = '';
-                }
-            });
-        }
-    })();
+    // Footer rating UI removed; corresponding JS removed to avoid errors.
 
         // Hide/show navbar on scroll: slide navbar out when scrolling down, show when scrolling up.
         (function() {

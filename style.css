@@ -19,6 +19,14 @@
   font-weight: 600;
 }
 
+/* Call logo (sizing moved from inline styles in index.html) */
+.call-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  margin-right: 8px;
+}
+
 .header-top-banner .call-us-number,
 .header-top-banner .email-us-link {
   color: #ffd700;
@@ -1549,23 +1557,7 @@ header .slider {
 }
 
 @media (max-width: 700px) {
-  .footer-rating-review {
-    max-width: 98vw;
-    padding: 1rem 0.3rem 1.2rem;
-  }
-
-  .rating-bar .star {
-    font-size: 1.5rem;
-  }
-
-  .review-form {
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-
-  .review-btn {
-    width: 100%;
-  }
+  /* Rating UI removed - related mobile styles removed */
 
   /* Make mobile navigation items highly visible */
   #collapsible-menu {

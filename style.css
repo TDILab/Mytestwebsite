@@ -1606,3 +1606,24 @@ header .slider {
     border: 0;
   }
 }
+
+/* Slider caption heading styles */
+.slider-caption h1 {
+  margin: 0;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  line-height: 1.1;
+}
+
+@media (max-width: 700px) {
+  .slider-caption h1 {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+

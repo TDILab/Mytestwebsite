@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Robo Eye Wizard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" media="all" onload="this.media='all'">
+  <link rel="icon" type="image/webp" href="business%20logo/logo-transparent.webp">
+  <style>
+    body { font-family: 'Roboto', Arial, sans-serif; margin: 0; padding: 0; }
+    .main-navbar {
+      display: flex; align-items: center; justify-content: space-between; padding: 0.7rem 1.2rem;
+      background: #1e3a5c;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07); position: sticky; top: 2.3rem; z-index: 100;
+      width: 100vw; max-width: 100vw; min-width: 0; margin: 0;
+    }
+    @media (max-width: 700px) {
+      .main-navbar { top: 2.8rem; }
+    }
+    .services-section {
+      padding: 4rem 2rem;
+      background: #f8f9fa;
+      margin: 3rem 0;
+    }
+    .services-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .services-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #1e3a5c;
+      text-align: center;
+      margin-bottom: 3rem;
+      letter-spacing: 0.5px;
+    }
+    .services-intro {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      color: #37474f;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .book-now-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .book-now-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .book-now-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+    .card-content {
+      padding: 2rem;
+      text-align: center;
+    }
+    .card-content h3 {
+      color: #1e3a5c;
+      font-size: 1.4rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    .card-content p {
+      color: #37474f;
+      font-size: 1.05rem;
+      margin: 1rem 0;
+      line-height: 1.5;
+    }
+    .card-content a {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: mediumaquamarine;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 7px;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+      margin-top: 1rem;
+    }
+    .card-content a:hover {
+      background: #45b78f;
+      transform: scale(1.05);
+    }
+    @media (max-width: 900px) {
+      .services-title {
+        font-size: 2.2rem;
+      }
+      .book-now-cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+    @media (max-width: 700px) {
+      .services-section {
+        padding: 2rem 1rem;
+      }
+      .services-title {
+        font-size: 1.8rem;
+      }
+      .book-now-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Banner -->
+  <div class="header-top-banner">
+    <img src="business%20logo/logo-transparent.png" alt="Call logo" class="call-logo" loading="lazy">
+    <a href="tel:6289286232" class="call-us-number">6289286232</a>
+    <span class="call-us-sep">/</span>
+    <a href="tel:8961428790" class="call-us-number">8961428790</a>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="main-navbar">
+      <button id="menu-toggle" class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="collapsible-menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services" class="active">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/qa">Q&amp;A</a></li>
+      </ul>
+      <div id="collapsible-menu" class="collapsible-menu">
+        <button id="menu-close" aria-label="Close menu" class="menu-close-btn">&times;</button>
+        <div class="nav-item"><a href="/">Home</a></div>
+        <div class="nav-item"><a href="/services">Services</a></div>
+        <div class="nav-item"><a href="/about">About</a></div>
+        <div class="nav-item"><a href="/contact">Contact</a></div>
+        <div class="nav-item"><a href="/qa">Q&amp;A</a></div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="services-section">
+      <div class="services-container">
+        <h1 class="services-title">Our Services</h1>
+        <p class="services-intro">Book any of our professional services below. Our team will contact you to confirm the appointment and provide a detailed quote. All services come with warranty and after-sales support.</p>
+        
+        <div class="book-now-cards">
+          <div class="book-now-card">
+            <div class="card-content">
+              <h3>💻 Laptop Service</h3>
+              <p>Professional repair, upgrade, and maintenance for all laptop brands. Expert diagnostics and quick turnaround.</p>
+              <a href="https://forms.gle/B2g8VsnErhtDis976" target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+
+          <div class="book-now-card">
+            <div class="card-content">
+              <h3>📹 CCTV Installation</h3>
+              <p>Secure your premises with expert CCTV setup. HD cameras, DVR/NVR systems, and professional installation included.</p>
+              <a href="https://forms.gle/B2g8VsnErhtDis976" target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+
+          <div class="book-now-card">
+            <div class="card-content">
+              <h3>⏱️ Attendance System</h3>
+              <p>Biometric and RFID attendance solutions for efficient workforce management with cloud reporting.</p>
+              <a href="https://forms.gle/B2g8VsnErhtDis976" target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+
+          <div class="book-now-card">
+            <div class="card-content">
+              <h3>📞 AV Door Phone</h3>
+              <p>Audio/Video door phone installation and service for enhanced security and visitor management.</p>
+              <a href="https://forms.gle/B2g8VsnErhtDis976" target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+
+          <div class="book-now-card">
+            <div class="card-content">
+              <h3>🌐 Networking</h3>
+              <p>WiFi and LAN setup, configuration, and support for homes and businesses with secure connectivity.</p>
+              <a href="https://forms.gle/B2g8VsnErhtDis976" target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+
+          <div class="book-now-card">
+            <div class="card-content">
+              <h3>🛠️ IT Consulting</h3>
+              <p>Expert advice on infrastructure, digital transformation, and strategic IT planning for your business.</p>
+              <a href="https://forms.gle/B2g8VsnErhtDis976" target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-book-with-us">
+          <h3>Why Book With Us?</h3>
+          <ul>
+            <li>✓ <strong>Expert Team:</strong> Certified professionals with years of experience</li>
+            <li>✓ <strong>Quick Response:</strong> Same-day or next-day service availability</li>
+            <li>✓ <strong>Transparent Pricing:</strong> No hidden charges, upfront quotes</li>
+            <li>✓ <strong>Warranty Coverage:</strong> All services backed by comprehensive warranty</li>
+            <li>✓ <strong>Free Consultation:</strong> Initial consultation at no cost</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-main">
+    <div class="footer-container">
+      <div class="footer-col-220">
+        <h3 class="footer-title">Robo Eye Wizard</h3>
+        <p class="footer-desc">Your trusted partner for professional laptop, CCTV, and IT services. Quality, reliability, and customer satisfaction are our top priorities.</p>
+      </div>
+      <div class="footer-col-160">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-list">
+          <li><a href="/" class="footer-link">Home</a></li>
+          <li><a href="/services" class="footer-link">Services</a></li>
+          <li><a href="/about" class="footer-link">About</a></li>
+          <li><a href="/contact" class="footer-link">Contact</a></li>
+          <li><a href="/qa" class="footer-link">Q&amp;A</a></li>
+        </ul>
+      </div>
+      <div class="footer-col-220">
+        <h4 class="footer-heading">Contact Info</h4>
+        <ul class="footer-list">
+          <li><span class="contact-strong">Phone:</span> <a href="tel:8961428790" class="footer-link">8961428790</a></li>
+          <li><span class="contact-strong">Email:</span> <a href="mailto:info@roboeyewizard.in" class="footer-link">info@roboeyewizard.in</a></li>
+          <li><span class="contact-strong">Address:</span> <span class="muted-text">31/A, Vidyasagar road, dum dum cant: kolkata-700065</span></li>
+        </ul>
+      </div>
+      <div class="footer-col-160">
+        <h4 class="footer-heading">Follow Us</h4>
+        <div class="social-links">
+          <a href="https://www.facebook.com/Roboeyewizard?mibextid=ZbWKwL" class="social-link" title="Facebook" target="_blank" rel="noopener"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg></a>
+          <a href="https://x.com/Roboeyewizard?s=09" class="social-link" title="X" target="_blank" rel="noopener"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.53 2.47A9 9 0 0 0 2.47 17.53 9 9 0 0 0 17.53 2.47zm-1.06 1.06a8 8 0 1 1-11.314 11.314A8 8 0 0 1 16.47 3.53zm-7.72 2.72l3.25 4.13 3.25-4.13h1.5l-4.13 5.25 4.13 5.25h-1.5l-3.25-4.13-3.25 4.13h-1.5l4.13-5.25-4.13-5.25h1.5z"/></svg></a>
+          <a href="https://www.linkedin.com/in/subrato-paul-a70317314" class="social-link" title="LinkedIn" target="_blank" rel="noopener"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.327-.027-3.037-1.849-3.037-1.851 0-2.132 1.445-2.132 2.939v5.667H9.358V9h3.414v1.561h.049c.476-.899 1.637-1.849 3.37-1.849 3.602 0 4.267 2.368 4.267 5.455v6.285zM5.337 7.433a 2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.549C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.271V1.723C24 .771 23.2 0 22.225 0z"/></svg></a>
+          <a href="https://www.youtube.com/@SubratoPaul-e9p" class="social-link" title="YouTube" target="_blank" rel="noopener"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.117C19.425 3.5 12 3.5 12 3.5s-7.425 0-9.391.569A2.994 2.994 0 0 0 .502 6.186C0 8.153 0 12 0 12s0 3.847.502 5.814a2.994 2.994 0 0 0 2.107 2.117C4.575 20.5 12 20.5 12 20.5s7.425 0 9.391-.569a2.994 2.994 0 0 0 2.107-2.117C24 15.847 24 12 24 12s0-3.847-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Robo Eye Wizard. All rights reserved. | Designed with <span class="star-gold">&#9733;</span> by Robo Eye Wizard Team
+    </div>
+  </footer>
+
+  <script src="script.js" type="module" defer></script>
+</body>
+</html>

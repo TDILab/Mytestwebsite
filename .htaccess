@@ -1,5 +1,38 @@
-# Apache .htaccess to set Cache-Control headers for static assets
-# Place this in the site root when deploying to an Apache server.
+# Apache .htaccess for URL rewriting and cache control
+# Place this in the site root when deploying to an Apache server on GoDaddy or similar hosts.
+
+# Enable URL rewriting for clean URLs (remove .html extension)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Explicit rewrites for known files BEFORE the generic rule
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^about/?$ about.html [NC,L]
+  RewriteRule ^services/?$ services.html [NC,L]
+  RewriteRule ^contact/?$ contact.html [NC,L]
+  RewriteRule ^[Qq]&[Aa]/?$ qa.html [NC,L]
+  RewriteRule ^[Qq][Aa]/?$ qa.html [NC,L]
+  RewriteRule ^CCTV-Service/?$ cctv-service.html [NC,L]
+  RewriteRule ^cctv-service/?$ cctv-service.html [NC,L]
+  RewriteRule ^Laptop-Service/?$ laptop-service.html [NC,L]
+  RewriteRule ^laptop-service/?$ laptop-service.html [NC,L]
+  RewriteRule ^Contact-Details/?$ contact-details.html [NC,L]
+  RewriteRule ^contact-details/?$ contact-details.html [NC,L]
+
+  # Generic rule: remove .html extension from URLs
+  # This allows /qa to work instead of /qa.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^([a-zA-Z0-9_\-]+)/?$ $1.html [NC,L]
+
+  # Prevent direct access to .htaccess file
+  <FilesMatch "^\.htaccess$">
+    Order allow,deny
+    Deny from all
+  </FilesMatch>
+</IfModule>
 
 <IfModule mod_expires.c>
   ExpiresActive On

@@ -89,11 +89,8 @@
           top: auto;
           left: auto;
           transform: none;
-          background: rgba(0,51,102,0.65);
           color: #fff;
           padding: 1.6rem 1.8rem;
-          border-radius: 16px;
-          box-shadow: 0 2px 16px rgba(0,0,0,0.13);
           text-align: center;
           z-index: 2;
           max-width: 90vw;
@@ -155,17 +152,17 @@
       </button>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
-        <li><a href="#book-now">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="qa.html">Q&amp;A</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/qa">Q&amp;A</a></li>
       </ul>
     <div id="collapsible-menu" class="collapsible-menu">
   <button id="menu-close" aria-label="Close menu" class="menu-close-btn">&times;</button>
   <div class="nav-item"><a href="#home">Home</a></div>
-  <div class="nav-item"><a href="#book-now">Services</a></div>
-  <div class="nav-item"><a href="#about">About</a></div>
-  <div class="nav-item"><a href="#contact">Contact</a></div>
+  <div class="nav-item"><a href="/services">Services</a></div>
+  <div class="nav-item"><a href="/about">About</a></div>
+  <div class="nav-item"><a href="/contact">Contact</a></div>
   <div class="nav-item"><a href="qa.html">Q&amp;A</a></div>
       </div>
     </nav>
@@ -292,91 +289,7 @@
       </section>
         </div>
     </section>
-    <section id="contact" class="hidden-section">
-      <div class="contact-card">
-        <h2>Contact Us</h2>
-        <!-- Embedding Google Forms can be blocked by Google's Content Security Policy (frame-ancestors 'none').
-             To avoid console errors and blocked frames we provide a direct link so users can open the form in a new tab. -->
-        <div class="contact-form-placeholder" role="region" aria-labelledby="contact-form-note">
-          <p id="contact-form-note">The contact form is hosted on Google Forms and may not allow embedding on this site. Please open it in a new tab to submit your request.</p>
-          <a href="https://forms.gle/jESZQVqzLYmd3njS7" target="_blank" rel="noopener" class="contact-form-link-btn">Open Contact Form in New Tab</a>
-          <div class="contact-form-link-msg">If your browser blocked the embedded form, use the button above to open it directly.</div>
-        </div>
-      </div>
-    </section>
-    <script>
-      // Show Contact section when Contact menu is clicked
-      document.addEventListener('DOMContentLoaded', function() {
-        var contactLinks = document.querySelectorAll('a[href="#contact"]');
-        var contactSection = document.getElementById('contact');
-        contactLinks.forEach(function(link) {
-          link.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (contactSection) {
-              contactSection.style.display = 'block';
-              contactSection.scrollIntoView({behavior: 'smooth'});
-            }
-          });
-        });
-      });
-    </script>
 
-  <section id="book-now" class="book-now-section">
-    <h2>Book Now</h2>
-    <div class="book-now-cards">
-      <div class="book-now-card">
-        <div class="card-content">
-          <h3>Laptop Service</h3>
-          <p>Professional repair & upgrade for all brands.</p>
-          <a href="https://forms.gle/B2g8VsnErhtDis976" target="_blank" rel="noopener">Book Now</a>
-        </div>
-      </div>
-      <div class="book-now-card">
-        <div class="card-content">
-          <h3>CCTV Installation</h3>
-          <p>Secure your premises with expert CCTV setup.</p>
-          <a href="https://forms.gle/B2g8VsnErhtDis976" target="_blank" rel="noopener">Book Now</a>
-        </div>
-      </div>
-      <div class="book-now-card">
-        <div class="card-content">
-          <h3>Attendance System</h3>
-          <p>Biometric & RFID attendance solutions.</p>
-          <a href="https://forms.gle/B2g8VsnErhtDis976" target="_blank" rel="noopener">Book Now</a>
-        </div>
-      </div>
-      <div class="book-now-card">
-        <div class="card-content">
-          <h3>AV Door Phone</h3>
-          <p>Audio/Video door phone installation & service.</p>
-          <a href="https://forms.gle/B2g8VsnErhtDis976" target="_blank" rel="noopener">Book Now</a>
-        </div>
-      </div>
-      <div class="book-now-card">
-        <div class="card-content">
-          <h3>Networking</h3>
-          <p>Setup & support for home and business networks.</p>
-          <a href="https://forms.gle/B2g8VsnErhtDis976" target="_blank" rel="noopener">Book Now</a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <script>
-    // Show Book Now section when Services menu is clicked
-    document.addEventListener('DOMContentLoaded', function() {
-    var servicesLinks = document.querySelectorAll('a[href="#book-now"]');
-    var bookNowSection = document.getElementById('book-now');
-    servicesLinks.forEach(function(link) {
-      link.addEventListener('click', function(e) {
-      e.preventDefault();
-      if (bookNowSection) {
-        bookNowSection.style.display = 'block';
-        bookNowSection.scrollIntoView({behavior: 'smooth'});
-      }
-      });
-    });
-    });
-  </script>
     <footer class="footer-main">
   <div class="footer-container">
     <div class="footer-col-220">
@@ -387,10 +300,10 @@
       <h4 class="footer-heading">Quick Links</h4>
       <ul class="footer-list">
         <li><a href="#home" class="footer-link">Home</a></li>
-        <li><a href="#book-now" class="footer-link">Services</a></li>
-        <li><a href="#about" class="footer-link">About</a></li>
+        <li><a href="/services" class="footer-link">Services</a></li>
+        <li><a href="/about" class="footer-link">About</a></li>
         <!-- Gallery tab removed as requested -->
-        <li><a href="#contact" class="footer-link">Contact</a></li>
+        <li><a href="/contact" class="footer-link">Contact</a></li>
   <li><a href="#" id="tc-link" class="footer-link tc-link">Terms &amp; Conditions</a></li>
       </ul>
       <div id="tc-modal" class="tc-modal">
